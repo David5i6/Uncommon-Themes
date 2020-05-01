@@ -214,7 +214,6 @@ UCTPaper >> initialize [
 	self windowActiveDropShadowStyle: #diffuse.
 	self settings preferGradientFill: false.
 	self class setPreferredShoutColors.
-	self useScrollbarThumbShadow: true.
 ]
 
 { #category : #forms }

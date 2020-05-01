@@ -239,7 +239,6 @@ UCTEstraza >> initialize [
 	self windowActiveDropShadowStyle: #diffuse.
 	self settings preferGradientFill: false.
 	self class setPreferredShoutColors.
-	self useScrollbarThumbShadow: false.
 ]
 
 { #category : #'fill-styles' }
