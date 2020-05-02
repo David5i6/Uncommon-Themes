@@ -283,7 +283,7 @@ UTCPolar >> paneColorFor: aWindow [
 { #category : #'fill-styles' }
 UTCPolar >> progressBarFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
-	^ self basePassiveBackgroundColorFor: aProgressBar.
+	^ (self basePassiveBackgroundColorFor: aProgressBar) whiter muchLighter .
 	
 ]
 
