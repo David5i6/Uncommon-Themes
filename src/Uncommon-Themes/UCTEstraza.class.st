@@ -276,7 +276,7 @@ UCTEstraza >> newRadioMarkerForm [
 UCTEstraza >> paneColorFor: aWindow [
 	"Answer the pane color that should be used."
 
-	^ (self windowActiveFillStyleFor: aWindow) asColor
+	^ self class baseColor
 ]
 
 { #category : #'fill-styles' }
