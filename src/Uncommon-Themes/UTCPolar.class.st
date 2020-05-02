@@ -1,58 +1,58 @@
 "
-Feel the sun light when not outside ;-)
+Feel the coolness of winter !
 "
 Class {
-	#name : #UCTSunLight,
+	#name : #UTCPolar,
 	#superclass : #UITheme,
 	#category : #'Uncommon-Themes-Base'
 }
 
 { #category : #accessing }
-UCTSunLight class >> baseColor [
-	^ Color r: 225 g: 215 b: 205 range: 255
+UTCPolar class >> baseColor [
+	^ Color r: 225 g: 248 b: 255 range: 255
 ]
 
 { #category : #accessing }
-UCTSunLight class >> basePassiveBackgroundColor [
-	^ Color r: 250 g: 245 b: 235 range: 255
+UTCPolar class >> basePassiveBackgroundColor [
+	^ Color r: 232 g: 248 b: 255 range: 255
 ]
 
 { #category : #accessing }
-UCTSunLight class >> baseSelectionColor [
-	^ Color r: 255 g: 225 b: 74 range: 255
+UTCPolar class >> baseSelectionColor [
+	^ Color r: 186 g: 232 b: 255 range: 255
 ]
 
 { #category : #accessing }
-UCTSunLight class >> darkBaseColor [
+UTCPolar class >> darkBaseColor [
 	^ Color r: 196 g: 196 b: 196 range: 255
 ]
 
 { #category : #accessing }
-UCTSunLight class >> isAbstract [
+UTCPolar class >> isAbstract [
 	"Answer whether the receiver is considered to be abstract."
 
 	^false
 ]
 
 { #category : #accessing }
-UCTSunLight class >> lightBaseColor [
-	^ Color r: 232 g: 225 b: 205 range: 255
+UTCPolar class >> lightBaseColor [
+	^ Color r: 222 g: 222 b: 222 range: 255
 ]
 
 { #category : #accessing }
-UCTSunLight class >> lightSelectionColor [
-	^ Color r: 255 g: 232 b: 128 range: 255
+UTCPolar class >> lightSelectionColor [
+	^ Color r: 208 g: 232 b: 255 range: 255
 ]
 
 { #category : #settings }
-UCTSunLight class >> setPreferredPreferences [
+UTCPolar class >> setPreferredPreferences [
 	"NECPreferences 
 		expandPrefixes: true;
 		popupShowWithShortcut: Character tab asShortcut."
 ]
 
 { #category : #settings }
-UCTSunLight class >> setPreferredShoutColors [
+UTCPolar class >> setPreferredShoutColors [
 	"self setPreferredShoutColors"
 	SHRBTextStyler styleTable: 
 		#(
@@ -168,23 +168,23 @@ UCTSunLight class >> setPreferredShoutColors [
 ]
 
 { #category : #accessing }
-UCTSunLight class >> themeName [
-	^ 'Uncommon Theme Sunlight'
+UTCPolar class >> themeName [
+	^ 'Uncommon Theme Polar'
 ]
 
 { #category : #accessing }
-UCTSunLight class >> veryLightSelectionColor [
-	^ self lightSelectionColor paler muchLighter
+UTCPolar class >> veryLightSelectionColor [
+	^ self lightSelectionColor muchLighter
 ]
 
 { #category : #'accessing colors' }
-UCTSunLight >> balloonBackgroundColor [
+UTCPolar >> balloonBackgroundColor [
 
-	^ (Color r: 0.79 g: 0.8 b: 1.0)
+	^ (Color r: 1.0 g: 1.0 b: 0.71)
 ]
 
 { #category : #'border-styles-buttons' }
-UCTSunLight >> buttonNormalBorderStyleFor: aButton [
+UTCPolar >> buttonNormalBorderStyleFor: aButton [
 	"Return the normal button borderStyle for the given button."
 
 	| outerColor |
@@ -199,23 +199,23 @@ UCTSunLight >> buttonNormalBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-buttons' }
-UCTSunLight >> buttonSelectedFillStyleFor: aButton [
+UTCPolar >> buttonSelectedFillStyleFor: aButton [
 	"Return the normal button fillStyle for the given button."
 	
-	| baseColor |
+	| baseColor selectionColor|
+	selectionColor := self class baseSelectionColor.
 	baseColor := (self lightSelectionColorFor: aButton) duller lighter.
 	"Fill using a Gradient"
 	^(GradientFillStyle
 		ramp:
-		{(0.0 -> baseColor).
-		(0.04 -> baseColor paler).
-	(0.08 -> baseColor whiter lighter).
-	(0.1 -> baseColor whiter muchLighter).
-	(0.3 -> baseColor whiter).
-	(0.6 -> baseColor).
-	(0.96 -> baseColor).
-	(1.0 -> baseColor darker).
-	})
+		{(0.0 -> selectionColor).
+		(0.06 -> selectionColor).
+	(0.12 -> selectionColor whiter).
+	(0.18 -> selectionColor whiter muchLighter).
+	(0.25 -> selectionColor whiter).
+	(0.3 -> selectionColor).
+	(0.4 -> baseColor lighter).
+	(1.0 -> baseColor)})
 		radial: false;
 		origin: aButton topLeft ;
 		direction: 0@(aButton height);
@@ -223,7 +223,7 @@ UCTSunLight >> buttonSelectedFillStyleFor: aButton [
 ]
 
 { #category : #'border-styles' }
-UCTSunLight >> configureWindowBorderFor: aWindow [
+UTCPolar >> configureWindowBorderFor: aWindow [
 
 	| aStyle |
 	aStyle := SimpleBorder new 
@@ -233,7 +233,7 @@ UCTSunLight >> configureWindowBorderFor: aWindow [
 ]
 
 { #category : #initialization }
-UCTSunLight >> initialize [
+UTCPolar >> initialize [
 	"self beCurrent"
 
 	super initialize.
@@ -243,84 +243,62 @@ UCTSunLight >> initialize [
 ]
 
 { #category : #'fill-styles' }
-UCTSunLight >> listDisabledFillStyleFor: aList [
+UTCPolar >> listDisabledFillStyleFor: aList [
 	"Return the disabled fillStyle for the given list."
 	
 	^ (Color lightGray lighter)
 ]
 
 { #category : #'fill-styles' }
-UCTSunLight >> listNormalFillStyleFor: aList [
+UTCPolar >> listNormalFillStyleFor: aList [
 	"Return the normal fillStyle for the given list."
 	
-	^Color white
+	^Color white 
 ]
 
 { #category : #'accessing colors' }
-UCTSunLight >> menuColor [
+UTCPolar >> menuColor [
 	^ self class baseColor
 ]
 
 { #category : #'accessing colors' }
-UCTSunLight >> menuSelectionColor [
+UTCPolar >> menuSelectionColor [
 	^ self class baseSelectionColor
 ]
 
 { #category : #forms }
-UCTSunLight >> newRadioMarkerForm [
+UTCPolar >> newRadioMarkerForm [
 	"Answer a new checkbox marker form."
 
 	^Form extent: 12@12 depth: 32
 ]
 
 { #category : #'fill-styles' }
-UCTSunLight >> paneColorFor: aWindow [
+UTCPolar >> paneColorFor: aWindow [
 	"Answer the pane color that should be used."
 
 	^ (self windowActiveFillStyleFor: aWindow) asColor
 ]
 
 { #category : #'fill-styles' }
-UCTSunLight >> progressBarFillStyleFor: aProgressBar [
+UTCPolar >> progressBarFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
-
-	| baseColor |
-	baseColor := (self basePassiveBackgroundColorFor: aProgressBar) duller.
-	"Fill using a Gradient"
-	^(GradientFillStyle
-		ramp:
-		{
-			(0.0 -> baseColor lighter paler ).
-			(0.05 -> baseColor lighter paler).
-			(0.49 -> baseColor paler).
-			(0.5 -> baseColor lighter).
-			(0.51 -> baseColor paler).
-			(0.95 -> baseColor lighter paler).
-			(1.0 -> baseColor lighter paler).
-		 }
-		)
-		radial: false;
-		origin: aProgressBar topLeft ;
-		direction:0@(aProgressBar height);
-		yourself.
+	^ self basePassiveBackgroundColorFor: aProgressBar.
+	
 ]
 
 { #category : #'fill-styles' }
-UCTSunLight >> progressBarProgressFillStyleFor: aProgressBar [
+UTCPolar >> progressBarProgressFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 
-	| baseColor hazeColor beamColor |
-	hazeColor := Color r: 255 g:210 b: 110 range:255.
-	beamColor := Color r:255 g:225 b:128 range:255.
+	| baseColor |
 	baseColor := self lightSelectionColorFor: aProgressBar.
 	"Fill using a Gradient"
 	^(GradientFillStyle
 		ramp:
-		{(0.0 -> hazeColor).		
-	(0.4 -> beamColor).
-	(0.5 -> baseColor).
-	(0.6 -> beamColor).
-	(1.0 -> hazeColor)})
+		{(0.0 -> baseColor darker).
+	(0.5 -> baseColor whiter).
+	(1.0 -> baseColor whiter paler).})
 		radial: false;
 		origin: aProgressBar topLeft ;
 		direction: 0@(aProgressBar height);
@@ -328,7 +306,7 @@ UCTSunLight >> progressBarProgressFillStyleFor: aProgressBar [
 ]
 
 { #category : #'fill-styles' }
-UCTSunLight >> resizerGripNormalFillStyleFor: aResizer [
+UTCPolar >> resizerGripNormalFillStyleFor: aResizer [
 	"Return the normal fillStyle for the given resizer.
 	For the moment, answer a transparent colour for no drawing,
 	non transparent to draw as normal."
@@ -337,7 +315,7 @@ UCTSunLight >> resizerGripNormalFillStyleFor: aResizer [
 ]
 
 { #category : #private }
-UCTSunLight >> scrollbarHorizontalFillStyleFor: aScrollbar [
+UTCPolar >> scrollbarHorizontalFillStyleFor: aScrollbar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -346,11 +324,11 @@ UCTSunLight >> scrollbarHorizontalFillStyleFor: aScrollbar [
 	^(GradientFillStyle
 		ramp:
 		{
-			(0.0 -> baseColor blacker darker).
+			(0.0 -> baseColor blacker).
 			(0.2 -> baseColor darker).
 			(0.5 -> baseColor).
 			(0.6 -> baseColor whiter).
-			(0.65 -> baseColor paler whiter muchLighter).
+			(0.65 -> baseColor whiter muchLighter).
 			(0.7 -> baseColor whiter).
 			(0.9 -> baseColor).
 			(1.0 -> baseColor).
@@ -363,7 +341,7 @@ UCTSunLight >> scrollbarHorizontalFillStyleFor: aScrollbar [
 ]
 
 { #category : #'fill-styles-scrollbars' }
-UCTSunLight >> scrollbarNormalFillStyleFor: aScrollbar [
+UTCPolar >> scrollbarNormalFillStyleFor: aScrollbar [
 	"Return the normal scrollbar fillStyle for the given scrollbar."
 	
 	aScrollbar height > aScrollbar width ifTrue:[
@@ -375,7 +353,7 @@ UCTSunLight >> scrollbarNormalFillStyleFor: aScrollbar [
 ]
 
 { #category : #private }
-UCTSunLight >> scrollbarVerticalFillStyleFor: aScrollbar [
+UTCPolar >> scrollbarVerticalFillStyleFor: aScrollbar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -384,11 +362,11 @@ UCTSunLight >> scrollbarVerticalFillStyleFor: aScrollbar [
 	^(GradientFillStyle
 		ramp:
 		{
-			(0.0 -> baseColor blacker darker).
+			(0.0 -> baseColor blacker).
 			(0.2 -> baseColor darker).
 			(0.5 -> baseColor).
 			(0.6 -> baseColor whiter).
-			(0.65 -> baseColor paler whiter muchLighter).
+			(0.65 -> baseColor whiter muchLighter).
 			(0.7 -> baseColor whiter).
 			(0.9 -> baseColor).
 			(1.0 -> baseColor).
@@ -401,31 +379,31 @@ UCTSunLight >> scrollbarVerticalFillStyleFor: aScrollbar [
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSunLight >> selectionColor [
+UTCPolar >> selectionColor [
 	"Answer the selection color to use.."
 
 	^ self class baseSelectionColor 
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSunLight >> taskbarFillStyleFor: aTaskbar [
-	^ SolidFillStyle color: (Color yellow paler muchLighter)
+UTCPolar >> taskbarFillStyleFor: aTaskbar [
+	^ SolidFillStyle color: (Color gray muchLighter)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSunLight >> taskbarItemDisabledBorderStyleFor: aButton [
+UTCPolar >> taskbarItemDisabledBorderStyleFor: aButton [
 	^ self taskbarItemNormalBorderStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSunLight >> taskbarItemDisabledFillStyleFor: aButton [
+UTCPolar >> taskbarItemDisabledFillStyleFor: aButton [
 	"Return the disabled taskbar item fillStyle for the given color."
 
 	^ self taskbarItemNormalFillStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSunLight >> taskbarItemMouseOverBorderStyleFor: aButton [
+UTCPolar >> taskbarItemMouseOverBorderStyleFor: aButton [
 	^ BottomBorder new
 		color: (Color fromHexString: '616161');
 		width: 2;
@@ -433,12 +411,12 @@ UCTSunLight >> taskbarItemMouseOverBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSunLight >> taskbarItemMouseOverFillStyleFor: aButton [
+UTCPolar >> taskbarItemMouseOverFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color transparent)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSunLight >> taskbarItemNormalBorderStyleFor: aButton [
+UTCPolar >> taskbarItemNormalBorderStyleFor: aButton [
 	^ BottomBorder new
 		color: (Color fromHexString: '757575');
 		width: 2;
@@ -447,82 +425,109 @@ UCTSunLight >> taskbarItemNormalBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSunLight >> taskbarItemNormalFillStyleFor: aButton [
+UTCPolar >> taskbarItemNormalFillStyleFor: aButton [
 	^ SolidFillStyle color: Color transparent
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSunLight >> taskbarItemPressedBorderStyleFor: aButton [
+UTCPolar >> taskbarItemPressedBorderStyleFor: aButton [
 	^ self taskbarItemNormalBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSunLight >> taskbarItemPressedFillStyleFor: aButton [
+UTCPolar >> taskbarItemPressedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color transparent)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSunLight >> taskbarItemSelectedBorderStyleFor: aButton [
+UTCPolar >> taskbarItemSelectedBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSunLight >> taskbarItemSelectedDisabledBorderStyleFor: aButton [
+UTCPolar >> taskbarItemSelectedDisabledBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSunLight >> taskbarItemSelectedFillStyleFor: aButton [
+UTCPolar >> taskbarItemSelectedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.1)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSunLight >> taskbarItemSelectedMouseOverBorderStyleFor: aButton [
+UTCPolar >> taskbarItemSelectedMouseOverBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSunLight >> taskbarItemSelectedMouseOverFillStyleFor: aButton [
+UTCPolar >> taskbarItemSelectedMouseOverFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color transparent )
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSunLight >> taskbarItemSelectedPressedBorderStyleFor: aButton [
+UTCPolar >> taskbarItemSelectedPressedBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSunLight >> taskbarItemSelectedPressedFillStyleFor: aButton [
+UTCPolar >> taskbarItemSelectedPressedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color transparent )
 ]
 
 { #category : #'fill-styles' }
-UCTSunLight >> textEditorDisabledFillStyleFor: aTextEditor [
+UTCPolar >> textEditorDisabledFillStyleFor: aTextEditor [
 	"Return the disabled fillStyle for the given text editor."
 	
 	^ (Color lightGray muchLighter)
 ]
 
 { #category : #'fill-styles' }
-UCTSunLight >> textEditorNormalFillStyleFor: aTextEditor [
+UTCPolar >> textEditorNormalFillStyleFor: aTextEditor [
 	"Return the normal fillStyle for the given text editor."
 	
 	^Color white
 ]
 
-{ #category : #'accessing colors' }
-UCTSunLight >> unfocusedSelectionColor [
-	^ self secondarySelectionColor
+{ #category : #'fill-styles' }
+UTCPolar >> windowActiveFillStyleFor: aWindow [
+	| baseColor |
+	baseColor := (self class baseColor) alpha:0.96.
+	"Fill using a Gradient"
+	^(GradientFillStyle
+		ramp:
+		{(0.0 -> baseColor).
+		(0.1 -> baseColor).
+	(0.3 -> baseColor whiter).
+	(0.35 -> baseColor whiter muchLighter).
+	(0.4 -> baseColor whiter).
+	(0.5 -> baseColor).
+	(0.8 -> baseColor darker).
+	(1.0 -> baseColor blacker)})
+		radial: false;
+		origin: aWindow topLeft ;
+		direction: (aWindow width)@(aWindow height);
+		yourself.
 ]
 
 { #category : #'fill-styles' }
-UCTSunLight >> windowActiveFillStyleFor: aWindow [
-	"We do not want the lighting effect when the window goes inactive"
-	^SolidFillStyle color: (self class baseColor)
-]
-
-{ #category : #'fill-styles' }
-UCTSunLight >> windowInactiveFillStyleFor: aWindow [
-	"We do not want the lighting effect when the window goes inactive"
-	^SolidFillStyle color: (self class baseColor)
+UTCPolar >> windowInactiveFillStyleFor: aWindow [
+	| baseColor |
+	baseColor := (self class baseColor) alpha:0.92.
+	"Fill using a Gradient"
+	^(GradientFillStyle
+		ramp:
+		{(0.0 -> baseColor).
+		(0.15 -> baseColor).
+	(0.25 -> baseColor whiter).
+	(0.3 -> baseColor whiter muchLighter).
+	(0.35 -> baseColor whiter).
+	(0.5 -> baseColor).
+	(0.6 -> baseColor whiter lighter).
+	(0.7 -> baseColor).
+	(0.8 -> baseColor darker).
+	(1.0 -> baseColor blacker)})
+		radial: false;
+		origin: aWindow topLeft ;
+		direction: (aWindow width)@(aWindow height);
+		yourself.
 ]
