@@ -243,14 +243,14 @@ UCTSunLight >> initialize [
 UCTSunLight >> listDisabledFillStyleFor: aList [
 	"Return the disabled fillStyle for the given list."
 	
-	^ (Color lightGray lighter)alpha: 0.86
+	^ (Color lightGray lighter)
 ]
 
 { #category : #'fill-styles' }
 UCTSunLight >> listNormalFillStyleFor: aList [
 	"Return the normal fillStyle for the given list."
 	
-	^Color white alpha: 0.92
+	^Color white
 ]
 
 { #category : #forms }
@@ -333,11 +333,11 @@ UCTSunLight >> scrollbarHorizontalFillStyleFor: aScrollbar [
 	^(GradientFillStyle
 		ramp:
 		{
-			(0.0 -> baseColor blacker).
+			(0.0 -> baseColor blacker darker).
 			(0.2 -> baseColor darker).
 			(0.5 -> baseColor).
 			(0.6 -> baseColor whiter).
-			(0.65 -> baseColor whiter muchLighter).
+			(0.65 -> baseColor paler whiter muchLighter).
 			(0.7 -> baseColor whiter).
 			(0.9 -> baseColor).
 			(1.0 -> baseColor).
@@ -408,32 +408,6 @@ UCTSunLight >> scrollbarPressedThumbVerticalFillStyleFor: aScrollbar [
 ]
 
 { #category : #private }
-UCTSunLight >> scrollbarThumbHorizontalFillStyleFor: aScrollbar [
-	" Get the color for the progress bar"
-
-	| baseColor |
-	baseColor := (self basePassiveBackgroundColorFor: aScrollbar) darker.
-	"Fill using a Gradient"
-	^(GradientFillStyle
-		ramp:
-		{
-			(0.0 -> baseColor blacker).
-			(0.2 -> baseColor darker).
-			(0.5 -> baseColor).
-			(0.6 -> baseColor whiter).
-			(0.65 -> baseColor whiter muchLighter).
-			(0.7 -> baseColor whiter).
-			(0.9 -> baseColor).
-			(1.0 -> baseColor).
-		 }
-		)
-		radial: false;
-		origin: aScrollbar topLeft ;
-		direction:0@(aScrollbar height);
-		yourself.
-]
-
-{ #category : #private }
 UCTSunLight >> scrollbarThumbVerticalFillStyleFor: aScrollbar [
 	" Get the color for the progress bar"
 
@@ -469,11 +443,11 @@ UCTSunLight >> scrollbarVerticalFillStyleFor: aScrollbar [
 	^(GradientFillStyle
 		ramp:
 		{
-			(0.0 -> baseColor blacker).
+			(0.0 -> baseColor blacker darker).
 			(0.2 -> baseColor darker).
 			(0.5 -> baseColor).
 			(0.6 -> baseColor whiter).
-			(0.65 -> baseColor whiter muchLighter).
+			(0.65 -> baseColor paler whiter muchLighter).
 			(0.7 -> baseColor whiter).
 			(0.9 -> baseColor).
 			(1.0 -> baseColor).
@@ -494,7 +468,7 @@ UCTSunLight >> selectionColor [
 
 { #category : #'fill-styles-taskbar' }
 UCTSunLight >> taskbarFillStyleFor: aTaskbar [
-	^ SolidFillStyle color: (Color gray muchLighter)
+	^ SolidFillStyle color: (Color yellow paler muchLighter)
 ]
 
 { #category : #'border-styles-taskbar' }

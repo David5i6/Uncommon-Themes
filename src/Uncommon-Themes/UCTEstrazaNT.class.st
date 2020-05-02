@@ -245,14 +245,14 @@ UCTEstrazaNT >> initialize [
 UCTEstrazaNT >> listDisabledFillStyleFor: aList [
 	"Return the disabled fillStyle for the given list."
 	
-	^ (Color lightGray lighter)alpha: 0.86
+	^ (Color lightGray lighter)
 ]
 
 { #category : #'fill-styles' }
 UCTEstrazaNT >> listNormalFillStyleFor: aList [
 	"Return the normal fillStyle for the given list."
 	
-	^Color white alpha: 0.92
+	^Color white 
 ]
 
 { #category : #forms }
