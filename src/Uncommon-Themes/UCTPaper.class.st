@@ -1,3 +1,6 @@
+"
+I'm a light color theme similar to the orriginal Pharo Light teme with minor color modifications.
+"
 Class {
 	#name : #UCTPaper,
 	#superclass : #UITheme,
@@ -214,7 +217,6 @@ UCTPaper >> initialize [
 	self windowActiveDropShadowStyle: #diffuse.
 	self settings preferGradientFill: false.
 	self class setPreferredShoutColors.
-	self useScrollbarThumbShadow: true.
 ]
 
 { #category : #forms }

@@ -1,3 +1,6 @@
+"
+I'm a bizarre theme with randomy changing colors
+"
 Class {
 	#name : #UCTCircus,
 	#superclass : #UITheme,

@@ -1,58 +1,58 @@
 "
-I'm a light theme with gradient-style porgress bar, and translucent windows decorations.
+I'm a light theme with gradient-style porgress bar, without translucency.
 "
 Class {
-	#name : #UCTEstraza,
+	#name : #UCTEstrazaNT,
 	#superclass : #UITheme,
 	#category : #'Uncommon-Themes-Base'
 }
 
 { #category : #accessing }
-UCTEstraza class >> baseColor [
+UCTEstrazaNT class >> baseColor [
 	^ Color r: 216 g: 216 b: 216 range: 255
 ]
 
 { #category : #accessing }
-UCTEstraza class >> basePassiveBackgroundColor [
+UCTEstrazaNT class >> basePassiveBackgroundColor [
 	^ Color r: 245 g: 245 b: 245 range: 255
 ]
 
 { #category : #accessing }
-UCTEstraza class >> baseSelectionColor [
+UCTEstrazaNT class >> baseSelectionColor [
 	^ Color r: 186 g: 232 b: 255 range: 255
 ]
 
 { #category : #accessing }
-UCTEstraza class >> darkBaseColor [
+UCTEstrazaNT class >> darkBaseColor [
 	^ Color r: 196 g: 196 b: 196 range: 255
 ]
 
 { #category : #accessing }
-UCTEstraza class >> isAbstract [
+UCTEstrazaNT class >> isAbstract [
 	"Answer whether the receiver is considered to be abstract."
 
 	^false
 ]
 
 { #category : #accessing }
-UCTEstraza class >> lightBaseColor [
+UCTEstrazaNT class >> lightBaseColor [
 	^ Color r: 222 g: 222 b: 222 range: 255
 ]
 
 { #category : #accessing }
-UCTEstraza class >> lightSelectionColor [
+UCTEstrazaNT class >> lightSelectionColor [
 	^ Color r: 208 g: 232 b: 255 range: 255
 ]
 
 { #category : #settings }
-UCTEstraza class >> setPreferredPreferences [
+UCTEstrazaNT class >> setPreferredPreferences [
 	"NECPreferences 
 		expandPrefixes: true;
 		popupShowWithShortcut: Character tab asShortcut."
 ]
 
 { #category : #settings }
-UCTEstraza class >> setPreferredShoutColors [
+UCTEstrazaNT class >> setPreferredShoutColors [
 	"self setPreferredShoutColors"
 	SHRBTextStyler styleTable: 
 		#(
@@ -168,23 +168,23 @@ UCTEstraza class >> setPreferredShoutColors [
 ]
 
 { #category : #accessing }
-UCTEstraza class >> themeName [
-	^ 'Uncommon Theme Estraza'
+UCTEstrazaNT class >> themeName [
+	^ 'Uncommon Theme Estraza NT'
 ]
 
 { #category : #accessing }
-UCTEstraza class >> veryLightSelectionColor [
+UCTEstrazaNT class >> veryLightSelectionColor [
 	^ self lightSelectionColor muchLighter
 ]
 
 { #category : #'accessing colors' }
-UCTEstraza >> balloonBackgroundColor [
+UCTEstrazaNT >> balloonBackgroundColor [
 
-	^ (Color r: 1.0 g: 1.0 b: 0.71 alpha: 0.85)
+	^ (Color r: 1.0 g: 1.0 b: 0.71)
 ]
 
 { #category : #'border-styles-buttons' }
-UCTEstraza >> buttonNormalBorderStyleFor: aButton [
+UCTEstrazaNT >> buttonNormalBorderStyleFor: aButton [
 	"Return the normal button borderStyle for the given button."
 
 	| outerColor |
@@ -199,7 +199,7 @@ UCTEstraza >> buttonNormalBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-buttons' }
-UCTEstraza >> buttonSelectedFillStyleFor: aButton [
+UCTEstrazaNT >> buttonSelectedFillStyleFor: aButton [
 	"Return the normal button fillStyle for the given button."
 	
 	| baseColor |
@@ -222,7 +222,7 @@ UCTEstraza >> buttonSelectedFillStyleFor: aButton [
 ]
 
 { #category : #'border-styles' }
-UCTEstraza >> configureWindowBorderFor: aWindow [
+UCTEstrazaNT >> configureWindowBorderFor: aWindow [
 
 	| aStyle |
 	aStyle := SimpleBorder new 
@@ -232,7 +232,7 @@ UCTEstraza >> configureWindowBorderFor: aWindow [
 ]
 
 { #category : #initialization }
-UCTEstraza >> initialize [
+UCTEstrazaNT >> initialize [
 	"self beCurrent"
 
 	super initialize.
@@ -242,35 +242,35 @@ UCTEstraza >> initialize [
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> listDisabledFillStyleFor: aList [
+UCTEstrazaNT >> listDisabledFillStyleFor: aList [
 	"Return the disabled fillStyle for the given list."
 	
-	^ Color lightGray lighter
+	^ (Color lightGray lighter)alpha: 0.86
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> listNormalFillStyleFor: aList [
+UCTEstrazaNT >> listNormalFillStyleFor: aList [
 	"Return the normal fillStyle for the given list."
 	
-	^Color white
+	^Color white alpha: 0.92
 ]
 
 { #category : #forms }
-UCTEstraza >> newRadioMarkerForm [
+UCTEstrazaNT >> newRadioMarkerForm [
 	"Answer a new checkbox marker form."
 
 	^Form extent: 12@12 depth: 32
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> paneColorFor: aWindow [
+UCTEstrazaNT >> paneColorFor: aWindow [
 	"Answer the pane color that should be used."
 
 	^ (self windowActiveFillStyleFor: aWindow) asColor
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> progressBarFillStyleFor: aProgressBar [
+UCTEstrazaNT >> progressBarFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -296,7 +296,7 @@ UCTEstraza >> progressBarFillStyleFor: aProgressBar [
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> progressBarProgressFillStyleFor: aProgressBar [
+UCTEstrazaNT >> progressBarProgressFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -319,7 +319,7 @@ UCTEstraza >> progressBarProgressFillStyleFor: aProgressBar [
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> resizerGripNormalFillStyleFor: aResizer [
+UCTEstrazaNT >> resizerGripNormalFillStyleFor: aResizer [
 	"Return the normal fillStyle for the given resizer.
 	For the moment, answer a transparent colour for no drawing,
 	non transparent to draw as normal."
@@ -328,7 +328,7 @@ UCTEstraza >> resizerGripNormalFillStyleFor: aResizer [
 ]
 
 { #category : #private }
-UCTEstraza >> scrollbarHorizontalFillStyleFor: aScrollbar [
+UCTEstrazaNT >> scrollbarHorizontalFillStyleFor: aScrollbar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -354,7 +354,7 @@ UCTEstraza >> scrollbarHorizontalFillStyleFor: aScrollbar [
 ]
 
 { #category : #'fill-styles-scrollbars' }
-UCTEstraza >> scrollbarNormalFillStyleFor: aScrollbar [
+UCTEstrazaNT >> scrollbarNormalFillStyleFor: aScrollbar [
 	"Return the normal scrollbar fillStyle for the given scrollbar."
 	
 	aScrollbar height > aScrollbar width ifTrue:[
@@ -366,7 +366,7 @@ UCTEstraza >> scrollbarNormalFillStyleFor: aScrollbar [
 ]
 
 { #category : #private }
-UCTEstraza >> scrollbarPressedThumbHorizontalFillStyleFor: aScrollbar [
+UCTEstrazaNT >> scrollbarPressedThumbHorizontalFillStyleFor: aScrollbar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -389,7 +389,7 @@ UCTEstraza >> scrollbarPressedThumbHorizontalFillStyleFor: aScrollbar [
 ]
 
 { #category : #private }
-UCTEstraza >> scrollbarPressedThumbVerticalFillStyleFor: aScrollbar [
+UCTEstrazaNT >> scrollbarPressedThumbVerticalFillStyleFor: aScrollbar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -412,7 +412,7 @@ UCTEstraza >> scrollbarPressedThumbVerticalFillStyleFor: aScrollbar [
 ]
 
 { #category : #private }
-UCTEstraza >> scrollbarThumbHorizontalFillStyleFor: aScrollbar [
+UCTEstrazaNT >> scrollbarThumbHorizontalFillStyleFor: aScrollbar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -438,7 +438,7 @@ UCTEstraza >> scrollbarThumbHorizontalFillStyleFor: aScrollbar [
 ]
 
 { #category : #private }
-UCTEstraza >> scrollbarThumbVerticalFillStyleFor: aScrollbar [
+UCTEstrazaNT >> scrollbarThumbVerticalFillStyleFor: aScrollbar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -464,7 +464,7 @@ UCTEstraza >> scrollbarThumbVerticalFillStyleFor: aScrollbar [
 ]
 
 { #category : #private }
-UCTEstraza >> scrollbarVerticalFillStyleFor: aScrollbar [
+UCTEstrazaNT >> scrollbarVerticalFillStyleFor: aScrollbar [
 	" Get the color for the progress bar"
 
 	| baseColor |
@@ -490,31 +490,31 @@ UCTEstraza >> scrollbarVerticalFillStyleFor: aScrollbar [
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTEstraza >> selectionColor [
+UCTEstrazaNT >> selectionColor [
 	"Answer the selection color to use.."
 
 	^ self class baseSelectionColor 
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTEstraza >> taskbarFillStyleFor: aTaskbar [
-	^ SolidFillStyle color: (Color gray muchLighter alpha: 0.95)
+UCTEstrazaNT >> taskbarFillStyleFor: aTaskbar [
+	^ SolidFillStyle color: (Color gray muchLighter)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTEstraza >> taskbarItemDisabledBorderStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemDisabledBorderStyleFor: aButton [
 	^ self taskbarItemNormalBorderStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTEstraza >> taskbarItemDisabledFillStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemDisabledFillStyleFor: aButton [
 	"Return the disabled taskbar item fillStyle for the given color."
 
 	^ self taskbarItemNormalFillStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTEstraza >> taskbarItemMouseOverBorderStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemMouseOverBorderStyleFor: aButton [
 	^ BottomBorder new
 		color: (Color fromHexString: '616161');
 		width: 2;
@@ -522,12 +522,12 @@ UCTEstraza >> taskbarItemMouseOverBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTEstraza >> taskbarItemMouseOverFillStyleFor: aButton [
-	^ SolidFillStyle color: (Color black alpha: 0.07)
+UCTEstrazaNT >> taskbarItemMouseOverFillStyleFor: aButton [
+	^ SolidFillStyle color: (Color transparent)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTEstraza >> taskbarItemNormalBorderStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemNormalBorderStyleFor: aButton [
 	^ BottomBorder new
 		color: (Color fromHexString: '757575');
 		width: 2;
@@ -536,77 +536,77 @@ UCTEstraza >> taskbarItemNormalBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTEstraza >> taskbarItemNormalFillStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemNormalFillStyleFor: aButton [
 	^ SolidFillStyle color: Color transparent
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTEstraza >> taskbarItemPressedBorderStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemPressedBorderStyleFor: aButton [
 	^ self taskbarItemNormalBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTEstraza >> taskbarItemPressedFillStyleFor: aButton [
-	^ SolidFillStyle color: (Color black alpha: 0.15)
+UCTEstrazaNT >> taskbarItemPressedFillStyleFor: aButton [
+	^ SolidFillStyle color: (Color transparent)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTEstraza >> taskbarItemSelectedBorderStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemSelectedBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTEstraza >> taskbarItemSelectedDisabledBorderStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemSelectedDisabledBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTEstraza >> taskbarItemSelectedFillStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemSelectedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.1)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTEstraza >> taskbarItemSelectedMouseOverBorderStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemSelectedMouseOverBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTEstraza >> taskbarItemSelectedMouseOverFillStyleFor: aButton [
-	^ SolidFillStyle color: (Color black alpha: 0.15)
+UCTEstrazaNT >> taskbarItemSelectedMouseOverFillStyleFor: aButton [
+	^ SolidFillStyle color: (Color transparent )
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTEstraza >> taskbarItemSelectedPressedBorderStyleFor: aButton [
+UCTEstrazaNT >> taskbarItemSelectedPressedBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTEstraza >> taskbarItemSelectedPressedFillStyleFor: aButton [
-	^ SolidFillStyle color: (Color black alpha: 0.2)
+UCTEstrazaNT >> taskbarItemSelectedPressedFillStyleFor: aButton [
+	^ SolidFillStyle color: (Color transparent )
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> textEditorDisabledFillStyleFor: aTextEditor [
+UCTEstrazaNT >> textEditorDisabledFillStyleFor: aTextEditor [
 	"Return the disabled fillStyle for the given text editor."
 	
-	^ (Color lightGray muchLighter) alpha: 0.86
+	^ (Color lightGray muchLighter)
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> textEditorNormalFillStyleFor: aTextEditor [
+UCTEstrazaNT >> textEditorNormalFillStyleFor: aTextEditor [
 	"Return the normal fillStyle for the given text editor."
 	
-	^Color white alpha: 0.92
+	^Color white
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> windowActiveFillStyleFor: aWindow [
+UCTEstrazaNT >> windowActiveFillStyleFor: aWindow [
 	"We do not want the lighting effect when the window goes inactive"
-	^SolidFillStyle color: (self class baseColor alpha: 0.92)
+	^SolidFillStyle color: (self class baseColor)
 ]
 
 { #category : #'fill-styles' }
-UCTEstraza >> windowInactiveFillStyleFor: aWindow [
+UCTEstrazaNT >> windowInactiveFillStyleFor: aWindow [
 	"We do not want the lighting effect when the window goes inactive"
-	^SolidFillStyle color: (self class baseColor alpha: 0.86)
+	^SolidFillStyle color: (self class baseColor)
 ]
