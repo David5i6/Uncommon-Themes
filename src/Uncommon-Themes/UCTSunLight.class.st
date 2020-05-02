@@ -1,3 +1,6 @@
+"
+Feel the sun light when not outside ;-)
+"
 Class {
 	#name : #UCTSunLight,
 	#superclass : #UITheme,
@@ -251,6 +254,16 @@ UCTSunLight >> listNormalFillStyleFor: aList [
 	"Return the normal fillStyle for the given list."
 	
 	^Color white
+]
+
+{ #category : #'accessing colors' }
+UCTSunLight >> menuColor [
+	^ self class baseColor
+]
+
+{ #category : #'accessing colors' }
+UCTSunLight >> menuSelectionColor [
+	^ self class baseSelectionColor
 ]
 
 { #category : #forms }
@@ -567,6 +580,11 @@ UCTSunLight >> textEditorNormalFillStyleFor: aTextEditor [
 	"Return the normal fillStyle for the given text editor."
 	
 	^Color white
+]
+
+{ #category : #'accessing colors' }
+UCTSunLight >> unfocusedSelectionColor [
+	^ self secondarySelectionColor
 ]
 
 { #category : #'fill-styles' }

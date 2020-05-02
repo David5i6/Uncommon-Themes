@@ -255,6 +255,16 @@ UCTEstraza >> listNormalFillStyleFor: aList [
 	^Color white
 ]
 
+{ #category : #'accessing colors' }
+UCTEstraza >> menuColor [
+	^ self class baseColor
+]
+
+{ #category : #'accessing colors' }
+UCTEstraza >> menuSelectionColor [
+	^ self class baseSelectionColor
+]
+
 { #category : #forms }
 UCTEstraza >> newRadioMarkerForm [
 	"Answer a new checkbox marker form."

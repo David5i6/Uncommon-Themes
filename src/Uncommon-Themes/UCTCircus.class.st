@@ -219,6 +219,16 @@ UCTCircus >> initialize [
 	self class setPreferredShoutColors
 ]
 
+{ #category : #'accessing colors' }
+UCTCircus >> menuColor [
+	^ self class baseColor
+]
+
+{ #category : #'accessing colors' }
+UCTCircus >> menuSelectionColor [
+	^ self class baseSelectionColor
+]
+
 { #category : #forms }
 UCTCircus >> newRadioMarkerForm [
 	"Answer a new checkbox marker form."

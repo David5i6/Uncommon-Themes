@@ -219,6 +219,16 @@ UCTPaper >> initialize [
 	self class setPreferredShoutColors.
 ]
 
+{ #category : #'accessing colors' }
+UCTPaper >> menuColor [
+	^ self class baseColor
+]
+
+{ #category : #'accessing colors' }
+UCTPaper >> menuSelectionColor [
+	^ self class baseSelectionColor
+]
+
 { #category : #forms }
 UCTPaper >> newRadioMarkerForm [
 	"Answer a new checkbox marker form."
