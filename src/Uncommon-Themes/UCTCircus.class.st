@@ -1,3 +1,6 @@
+"
+I'm a bizarre theme with randomy changing colors
+"
 Class {
 	#name : #UCTCircus,
 	#superclass : #UITheme,
@@ -214,6 +217,16 @@ UCTCircus >> initialize [
 	self windowActiveDropShadowStyle: #diffuse.
 	self settings preferGradientFill: false.
 	self class setPreferredShoutColors
+]
+
+{ #category : #'accessing colors' }
+UCTCircus >> menuColor [
+	^ self class baseColor
+]
+
+{ #category : #'accessing colors' }
+UCTCircus >> menuSelectionColor [
+	^ self class baseSelectionColor
 ]
 
 { #category : #forms }
