@@ -208,14 +208,14 @@ UTCPolar >> buttonSelectedFillStyleFor: aButton [
 	"Fill using a Gradient"
 	^(GradientFillStyle
 		ramp:
-		{(0.0 -> selectionColor).
-		(0.06 -> selectionColor).
-	(0.12 -> selectionColor whiter).
+		{(0.0 -> selectionColor lighter).
+		(0.06 -> selectionColor lighter).
+	(0.12 -> selectionColor whiter lighter).
 	(0.18 -> selectionColor whiter muchLighter).
 	(0.25 -> selectionColor whiter).
 	(0.3 -> selectionColor).
 	(0.4 -> baseColor lighter).
-	(1.0 -> baseColor)})
+	(1.0 -> baseColor whiter)})
 		radial: false;
 		origin: aButton topLeft ;
 		direction: 0@(aButton height);
