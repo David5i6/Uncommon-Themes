@@ -1,6 +1,14 @@
+"
+Pharo light like theme with semantic colors.
+
+Most of my colors are based upon text and values contrasted with a dictionary.
+"
 Class {
 	#name : #UCTSemantic,
 	#superclass : #UITheme,
+	#instVars : [
+		'windowSemanticFills'
+	],
 	#category : #'Uncommon-Themes-Base'
 }
 
@@ -177,7 +185,7 @@ UCTSemantic class >> veryLightSelectionColor [
 { #category : #'accessing colors' }
 UCTSemantic >> balloonBackgroundColor [
 
-	^ (Color r: 1.0 g: 1.0 b: 0.71)
+	^ (Color r: 1.0 g: 1.0 b: 0.74)
 ]
 
 { #category : #'border-styles-buttons' }
@@ -236,6 +244,26 @@ UCTSemantic >> initialize [
 	self windowActiveDropShadowStyle: #diffuse.
 	self settings preferGradientFill: false.
 	self class setPreferredShoutColors.
+	self initializeWindowSemanticFills 
+]
+
+{ #category : #initialization }
+UCTSemantic >> initializeWindowSemanticFills [
+	"Initialize Window Semantic Fills"
+	
+	windowSemanticFills := Dictionary new.
+	
+	windowSemanticFills at: 'BASELINE' put: (SolidFillStyle color: Color lightYellow).
+	windowSemanticFills at: 'PLAYGROUND' put: (SolidFillStyle color: Color lightBlue).
+	windowSemanticFills at: 'SETTINGS' put: (SolidFillStyle color:Color yellow).
+	windowSemanticFills at: 'SYSTEM' put: (SolidFillStyle color:Color orange).
+	windowSemanticFills at: 'DEBUG' put: (SolidFillStyle color:(Color r:255 g:108 b:180 range:255)).
+	
+	windowSemanticFills at: 'ERROR' put: (SolidFillStyle color:Color red).
+	windowSemanticFills at: 'EXCEPTION' put: (SolidFillStyle color:Color orange).
+	
+	windowSemanticFills at: 'TEST' put: (SolidFillStyle color: Color lightGreen).
+	windowSemanticFills at: 'TRANSCRIPT' put: (SolidFillStyle color:Color lightGray).	
 ]
 
 { #category : #'fill-styles' }
@@ -609,11 +637,40 @@ UCTSemantic >> textEditorNormalFillStyleFor: aTextEditor [
 { #category : #'fill-styles' }
 UCTSemantic >> windowActiveFillStyleFor: aWindow [
 	"We do not want the lighting effect when the window goes inactive"
-	^SolidFillStyle color: (self class baseColor)
+
+	^ self windowSemanticFillStyleFor2: aWindow
 ]
 
 { #category : #'fill-styles' }
 UCTSemantic >> windowInactiveFillStyleFor: aWindow [
 	"We do not want the lighting effect when the window goes inactive"
-	^SolidFillStyle color: (self class baseColor)
+
+	^ SolidFillStyle color: ((self class baseColor) alpha: 0.82)
+]
+
+{ #category : #'fill-styles' }
+UCTSemantic >> windowSemanticFillStyleFor2: aWindow [
+	"Retrieve the first entry from the ditionary whose key is included in the window title (label)"
+
+	self flag: #TODO.'For refreshing during development'.
+	self initializeWindowSemanticFills.
+
+	windowSemanticFills keys
+		do: [ :key | 
+			(aWindow label trim asUppercase indexOfSubCollection: key) > 0
+				ifTrue: [ ^ windowSemanticFills at: key ] ].
+	^ SolidFillStyle color: self class baseColor muchLighter paler
+]
+
+{ #category : #'fill-styles' }
+UCTSemantic >> windowSemanticFillStyleFor: aWindow [
+	"We do not want the lighting effect when the window goes inactive"
+
+	| color |
+	[ color := aWindow label = 'Playground'
+		ifTrue: [ Color lightYellow ]
+		ifFalse: [ Color lightGray ] ]
+		on: Error
+		do: [ :error | color := Color red. Transcript show: (error asString). ].
+	^ color
 ]
