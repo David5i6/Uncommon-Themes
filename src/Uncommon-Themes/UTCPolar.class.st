@@ -24,7 +24,7 @@ UTCPolar class >> baseSelectionColor [
 
 { #category : #accessing }
 UTCPolar class >> darkBaseColor [
-	^ Color r: 192 g: 196 b: 200 range: 255
+	^ Color r: 192 g: 196 b: 205 range: 255
 ]
 
 { #category : #accessing }
@@ -36,7 +36,7 @@ UTCPolar class >> isAbstract [
 
 { #category : #accessing }
 UTCPolar class >> lightBaseColor [
-	^ Color r: 222 g: 222 b: 222 range: 255
+	^ Color r: 225 g: 248 b: 255 range: 255
 ]
 
 { #category : #accessing }
@@ -209,7 +209,7 @@ UTCPolar >> buttonSelectedFillStyleFor: aButton [
 	^(GradientFillStyle
 		ramp:
 		{(0.0 -> selectionColor muchLighter paler).
-		(0.06 -> selectionColor lighter).
+		(0.05 -> selectionColor lighter).
 	(0.12 -> selectionColor whiter lighter).
 	(0.18 -> selectionColor whiter muchLighter).
 	(0.25 -> selectionColor whiter).
@@ -291,14 +291,16 @@ UTCPolar >> progressBarFillStyleFor: aProgressBar [
 UTCPolar >> progressBarProgressFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 
-	| baseColor |
-	baseColor := self lightSelectionColorFor: aProgressBar.
+	| baseColor baseColorLight|
+	baseColorLight := self lightSelectionColorFor: aProgressBar.
+	baseColor := self baseColorFor: aProgressBar .
 	"Fill using a Gradient"
 	^(GradientFillStyle
 		ramp:
-		{(0.0 -> baseColor darker).
-	(0.5 -> baseColor whiter).
-	(1.0 -> baseColor whiter paler).})
+		{(0.0 -> baseColor ).
+	(0.5 -> baseColor whiter lighter ).
+	(0.51 -> baseColorLight whiter lighter).
+	(1.0 -> baseColorLight).})
 		radial: false;
 		origin: aProgressBar topLeft ;
 		direction: 0@(aProgressBar height);
@@ -387,7 +389,7 @@ UTCPolar >> selectionColor [
 
 { #category : #'fill-styles-taskbar' }
 UTCPolar >> taskbarFillStyleFor: aTaskbar [
-	^ SolidFillStyle color: (Color gray muchLighter)
+	^ SolidFillStyle color: (self class baseColor) lighter
 ]
 
 { #category : #'border-styles-taskbar' }
