@@ -276,7 +276,7 @@ UCTMechanical >> progressBarFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 
 	| baseColor |
-	baseColor := self basePassiveBackgroundColorFor: aProgressBar.
+	baseColor := self class baseColor lighter.
 	"Fill using a Gradient"
 	^(GradientFillStyle
 		ramp:
