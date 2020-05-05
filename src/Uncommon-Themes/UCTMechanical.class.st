@@ -14,7 +14,7 @@ UCTMechanical class >> baseColor [
 
 { #category : #accessing }
 UCTMechanical class >> basePassiveBackgroundColor [
-	^ Color transparent.
+	^ Color transparent 
 ]
 
 { #category : #accessing }
@@ -24,7 +24,7 @@ UCTMechanical class >> baseSelectionColor [
 
 { #category : #accessing }
 UCTMechanical class >> darkBaseColor [
-	^ Color black alpha: 0.75
+	^ Color lightGray whiter lighter
 ]
 
 { #category : #accessing }
