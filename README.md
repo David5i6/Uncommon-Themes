@@ -25,6 +25,10 @@ Here is a list of themes with ans screenshot of them.
 
 ![screenshot](./screenshots/Aquamarine.png)
 
+### Gold
+
+![screenshot](./screenshots/Gold.png)
+
 ### Circus
 
 ![screenshot](./screenshots/Circus.png)
@@ -45,7 +49,6 @@ Here is a list of themes with ans screenshot of them.
 
 ![screenshot](./screenshots/Polar.png)
 
-
 ### Ruby
 
 ![screenshot](./screenshots/Ruby.png)
@@ -53,6 +56,10 @@ Here is a list of themes with ans screenshot of them.
 ### Sakura
 
 ![screenshot](./screenshots/Sakura.png)
+
+### Silver
+
+![screenshot](./screenshots/Silver.png)
 
 ### Straza
 
