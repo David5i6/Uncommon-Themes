@@ -16,3 +16,55 @@ Metacello new
 ```
 
 Then go to *Settings* and select a "Uncommon Theme".
+
+## Themes
+
+Here is a list of themes with ans screenshot of them.
+
+### Aquamarine
+
+![screenshot](./screenshots/Aquamarine.png)
+
+### Circus
+
+![screenshot](./screenshots/Circus.png)
+
+### Emerald
+
+![screenshot](./screenshots/Emerald.png)
+
+### Mechanic
+
+![screenshot](./screenshots/Mechanic.png)
+
+### Paper
+
+![screenshot](./screenshots/Paper.png)
+
+### Polar
+
+![screenshot](./screenshots/Polar.png)
+
+
+### Ruby
+
+![screenshot](./screenshots/Ruby.png)
+
+### Sakura
+
+![screenshot](./screenshots/Sakura.png)
+
+### Straza
+
+![screenshot](./screenshots/Straza.png)
+
+
+### Straza NT
+
+The same as Straza but without transparency.
+
+![screenshot](./screenshots/StrazaNT.png)
+
+### Sunlight
+
+![screenshot](./screenshots/Sunlight.png)
