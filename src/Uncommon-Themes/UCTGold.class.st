@@ -1,58 +1,58 @@
 "
-Silver Theme
+Gold Theme
 "
 Class {
-	#name : #UCTSilver,
+	#name : #UCTGold,
 	#superclass : #UITheme,
 	#category : #'Uncommon-Themes-Base'
 }
 
 { #category : #accessing }
-UCTSilver class >> baseColor [
-	^ Color r: 192 g: 192 b: 192 range: 255
+UCTGold class >> baseColor [
+	^ Color r: 255 g: 225 b: 128 range: 255
 ]
 
 { #category : #accessing }
-UCTSilver class >> basePassiveBackgroundColor [
+UCTGold class >> basePassiveBackgroundColor [
 	^ Color transparent 
 ]
 
 { #category : #accessing }
-UCTSilver class >> baseSelectionColor [
-	^ Color r: 205 g: 225 b: 255 range: 255
+UCTGold class >> baseSelectionColor [
+	^ Color r: 245 g: 232 b: 192 range: 255
 ]
 
 { #category : #accessing }
-UCTSilver class >> darkBaseColor [
-	^ Color lightGray whiter lighter
+UCTGold class >> darkBaseColor [
+	^ self baseColor duller darker alpha: 0.5
 ]
 
 { #category : #accessing }
-UCTSilver class >> isAbstract [
+UCTGold class >> isAbstract [
 	"Answer whether the receiver is considered to be abstract."
 
 	^false
 ]
 
 { #category : #accessing }
-UCTSilver class >> lightBaseColor [
+UCTGold class >> lightBaseColor [
 	^ Color white alpha:0.75
 ]
 
 { #category : #accessing }
-UCTSilver class >> lightSelectionColor [
-	^ Color r: 255 g: 210 b: 238 range: 255
+UCTGold class >> lightSelectionColor [
+	^ Color r: 255 g: 248 b: 215 range: 255
 ]
 
 { #category : #settings }
-UCTSilver class >> setPreferredPreferences [
+UCTGold class >> setPreferredPreferences [
 	"NECPreferences 
 		expandPrefixes: true;
 		popupShowWithShortcut: Character tab asShortcut."
 ]
 
 { #category : #settings }
-UCTSilver class >> setPreferredShoutColors [
+UCTGold class >> setPreferredShoutColors [
 	"self setPreferredShoutColors"
 	SHRBTextStyler styleTable: 
 		#(
@@ -168,23 +168,23 @@ UCTSilver class >> setPreferredShoutColors [
 ]
 
 { #category : #accessing }
-UCTSilver class >> themeName [
-	^ 'Uncommon Theme Silver'
+UCTGold class >> themeName [
+	^ 'Uncommon Theme Gold'
 ]
 
 { #category : #accessing }
-UCTSilver class >> veryLightSelectionColor [
+UCTGold class >> veryLightSelectionColor [
 	^ self lightSelectionColor muchLighter
 ]
 
 { #category : #'accessing colors' }
-UCTSilver >> balloonBackgroundColor [
+UCTGold >> balloonBackgroundColor [
 
-	^ (Color r: 1.0 g: 0.86 b: 0.74 alpha: 0.86)
+	^ (Color r: 1.0 g: 0.92 b: 0.76 alpha: 0.86)
 ]
 
 { #category : #'border-styles-buttons' }
-UCTSilver >> buttonNormalBorderStyleFor: aButton [
+UCTGold >> buttonNormalBorderStyleFor: aButton [
 	"Return the normal button borderStyle for the given button."
 
 	| outerColor |
@@ -199,7 +199,7 @@ UCTSilver >> buttonNormalBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-buttons' }
-UCTSilver >> buttonSelectedFillStyleFor: aButton [
+UCTGold >> buttonSelectedFillStyleFor: aButton [
 	"Return the normal button fillStyle for the given button."
 	
 	| baseColor |
@@ -221,7 +221,7 @@ UCTSilver >> buttonSelectedFillStyleFor: aButton [
 ]
 
 { #category : #'border-styles' }
-UCTSilver >> configureWindowBorderFor: aWindow [
+UCTGold >> configureWindowBorderFor: aWindow [
 
 	| aStyle |
 	aStyle := SimpleBorder new 
@@ -231,7 +231,7 @@ UCTSilver >> configureWindowBorderFor: aWindow [
 ]
 
 { #category : #initialization }
-UCTSilver >> initialize [
+UCTGold >> initialize [
 	"self beCurrent"
 
 	super initialize.
@@ -241,44 +241,44 @@ UCTSilver >> initialize [
 ]
 
 { #category : #'fill-styles' }
-UCTSilver >> listDisabledFillStyleFor: aList [
+UCTGold >> listDisabledFillStyleFor: aList [
 	"Return the disabled fillStyle for the given list."
 	
 	^ Color lightGray lighter
 ]
 
 { #category : #'accessing colors' }
-UCTSilver >> menuColor [
+UCTGold >> menuColor [
 	^ self class baseColor
 ]
 
 { #category : #'accessing colors' }
-UCTSilver >> menuSelectionColor [
+UCTGold >> menuSelectionColor [
 	^ self class baseSelectionColor
 ]
 
 { #category : #forms }
-UCTSilver >> newRadioMarkerForm [
+UCTGold >> newRadioMarkerForm [
 	"Answer a new checkbox marker form."
 
 	^Form extent: 12@12 depth: 32
 ]
 
 { #category : #'fill-styles' }
-UCTSilver >> paneColorFor: aWindow [
+UCTGold >> paneColorFor: aWindow [
 	"Answer the pane color that should be used."
 
 	^ Color transparent.
 ]
 
 { #category : #'fill-styles' }
-UCTSilver >> progressBarFillStyleFor: aProgressBar [
+UCTGold >> progressBarFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 
 	| baseColor |
-	baseColor := self class baseColor muchLighter whiter.
+	baseColor := self class baseColor muchLighter whiter alpha:0.92.
 	"Fill using a Gradient"
-	^(GradientFillStyle
+	^(InterpolatedGradientFillStyle
 		ramp:
 		{
 			(0.0 -> baseColor blacker darker).
@@ -298,13 +298,13 @@ UCTSilver >> progressBarFillStyleFor: aProgressBar [
 ]
 
 { #category : #'fill-styles' }
-UCTSilver >> progressBarProgressFillStyleFor: aProgressBar [
+UCTGold >> progressBarProgressFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 	"Fill using a Gradient"
 	^(InterpolatedGradientFillStyle
 		ramp:
-		{(0.0 -> ((self class baseColor)  lighter paler whiter duller alpha:0.64)).	
-	(1.0 -> ((self class baseSelectionColor) lighter whiter alpha:0.75))})
+		{(0.0 -> ((self class baseColor)  lighter paler alpha:0.74)).	
+	(1.0 -> ((self class baseSelectionColor)  alpha:0.786))})
 		radial: false;
 		origin: aProgressBar topLeft ;
 		direction: (aProgressBar width)@(aProgressBar height);
@@ -312,7 +312,7 @@ UCTSilver >> progressBarProgressFillStyleFor: aProgressBar [
 ]
 
 { #category : #'fill-styles' }
-UCTSilver >> resizerGripNormalFillStyleFor: aResizer [
+UCTGold >> resizerGripNormalFillStyleFor: aResizer [
 	"Return the normal fillStyle for the given resizer.
 	For the moment, answer a transparent colour for no drawing,
 	non transparent to draw as normal."
@@ -321,55 +321,55 @@ UCTSilver >> resizerGripNormalFillStyleFor: aResizer [
 ]
 
 { #category : #'border-styles-scrollbars' }
-UCTSilver >> scrollbarNormalBorderStyleFor: aScrollbar [
+UCTGold >> scrollbarNormalBorderStyleFor: aScrollbar [
 	"Return the normal button borderStyle for the given scrollbar."
 
 	^BorderStyle simple
 		width: 1;
-		baseColor: Color lightBlue paler muchDarker
+		baseColor: Color yellow paler muchDarker
 ]
 
 { #category : #'border-styles-scrollbars' }
-UCTSilver >> scrollbarNormalThumbBorderStyleFor: aScrollbar [
+UCTGold >> scrollbarNormalThumbBorderStyleFor: aScrollbar [
 	"Return the normal thumb borderStyle for the given scrollbar."
 
 	^ BorderStyle simple
 		width: 1;
-		baseColor: (Color blue duller paler blacker darker alpha:0.76)
+		baseColor: (Color yellow duller paler blacker darker alpha:0.76)
 ]
 
 { #category : #'fill-styles-scrollbars' }
-UCTSilver >> scrollbarNormalThumbFillStyleFor: aScrollbar [
+UCTGold >> scrollbarNormalThumbFillStyleFor: aScrollbar [
 	"Return the normal scrollbar fillStyle for the given scrollbar."
-	^ SolidFillStyle color: ((self class baseSelectionColor) paler whiter lighter)
+	^ SolidFillStyle color: ((self class baseSelectionColor) paler lighter)
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSilver >> selectionColor [
+UCTGold >> selectionColor [
 	"Answer the selection color to use.."
 
 	^ self class baseSelectionColor 
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSilver >> taskbarFillStyleFor: aTaskbar [
+UCTGold >> taskbarFillStyleFor: aTaskbar [
 	^ SolidFillStyle color: (Color gray muchLighter alpha: 0.92)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSilver >> taskbarItemDisabledBorderStyleFor: aButton [
+UCTGold >> taskbarItemDisabledBorderStyleFor: aButton [
 	^ self taskbarItemNormalBorderStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSilver >> taskbarItemDisabledFillStyleFor: aButton [
+UCTGold >> taskbarItemDisabledFillStyleFor: aButton [
 	"Return the disabled taskbar item fillStyle for the given color."
 
 	^ self taskbarItemNormalFillStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSilver >> taskbarItemMouseOverBorderStyleFor: aButton [
+UCTGold >> taskbarItemMouseOverBorderStyleFor: aButton [
 	^ BottomBorder new
 		color: (Color fromHexString: '616161');
 		width: 2;
@@ -377,12 +377,12 @@ UCTSilver >> taskbarItemMouseOverBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSilver >> taskbarItemMouseOverFillStyleFor: aButton [
+UCTGold >> taskbarItemMouseOverFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.07)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSilver >> taskbarItemNormalBorderStyleFor: aButton [
+UCTGold >> taskbarItemNormalBorderStyleFor: aButton [
 	^ BottomBorder new
 		color: (Color fromHexString: '757575');
 		width: 2;
@@ -391,71 +391,71 @@ UCTSilver >> taskbarItemNormalBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSilver >> taskbarItemNormalFillStyleFor: aButton [
+UCTGold >> taskbarItemNormalFillStyleFor: aButton [
 	^ SolidFillStyle color: Color transparent
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSilver >> taskbarItemPressedBorderStyleFor: aButton [
+UCTGold >> taskbarItemPressedBorderStyleFor: aButton [
 	^ self taskbarItemNormalBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSilver >> taskbarItemPressedFillStyleFor: aButton [
+UCTGold >> taskbarItemPressedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.15)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSilver >> taskbarItemSelectedBorderStyleFor: aButton [
+UCTGold >> taskbarItemSelectedBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSilver >> taskbarItemSelectedDisabledBorderStyleFor: aButton [
+UCTGold >> taskbarItemSelectedDisabledBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSilver >> taskbarItemSelectedFillStyleFor: aButton [
+UCTGold >> taskbarItemSelectedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.1)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSilver >> taskbarItemSelectedMouseOverBorderStyleFor: aButton [
+UCTGold >> taskbarItemSelectedMouseOverBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSilver >> taskbarItemSelectedMouseOverFillStyleFor: aButton [
+UCTGold >> taskbarItemSelectedMouseOverFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.15)
 ]
 
 { #category : #'border-styles-taskbar' }
-UCTSilver >> taskbarItemSelectedPressedBorderStyleFor: aButton [
+UCTGold >> taskbarItemSelectedPressedBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-UCTSilver >> taskbarItemSelectedPressedFillStyleFor: aButton [
+UCTGold >> taskbarItemSelectedPressedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color red darker alpha: 0.25)
 ]
 
 { #category : #'fill-styles' }
-UCTSilver >> textEditorDisabledFillStyleFor: aTextEditor [
+UCTGold >> textEditorDisabledFillStyleFor: aTextEditor [
 	"Return the disabled fillStyle for the given text editor."
 	
 	^ (Color lightGray muchLighter)
 ]
 
 { #category : #'fill-styles' }
-UCTSilver >> textEditorNormalFillStyleFor: aTextEditor [
+UCTGold >> textEditorNormalFillStyleFor: aTextEditor [
 	"Return the normal fillStyle for the given text editor."
 	
 	^Color white
 ]
 
 { #category : #'fill-styles' }
-UCTSilver >> windowActiveFillStyleFor: aWindow [
+UCTGold >> windowActiveFillStyleFor: aWindow [
 	| baseColor |
 	baseColor := (self class baseColor) alpha:0.96.
 	"Fill using a Gradient"
@@ -484,9 +484,9 @@ UCTSilver >> windowActiveFillStyleFor: aWindow [
 ]
 
 { #category : #'fill-styles' }
-UCTSilver >> windowInactiveFillStyleFor: aWindow [
+UCTGold >> windowInactiveFillStyleFor: aWindow [
 	| baseColor |
-	baseColor := (self class baseColor) lighter alpha:0.82.
+	baseColor := (self class baseColor whiter duller) alpha:0.82.
 	"Fill using a Gradient"
 	^(InterpolatedGradientFillStyle
 		ramp:
