@@ -180,7 +180,7 @@ UCTSilver class >> veryLightSelectionColor [
 { #category : #'accessing colors' }
 UCTSilver >> balloonBackgroundColor [
 
-	^ (Color r: 1.0 g: 0.86 b: 0.74 alpha: 0.86)
+	^ (Color r: 0.8 g: 0.8 b: 0.8 alpha: 0.86)
 ]
 
 { #category : #'border-styles-buttons' }
