@@ -25,21 +25,31 @@ Here is a list of themes with ans screenshot of them.
 
 ![screenshot](./screenshots/Aquamarine.png)
 
-### Gold
-
-![screenshot](./screenshots/Gold.png)
-
 ### Circus
 
 ![screenshot](./screenshots/Circus.png)
+
+### Copper
+
+![screenshot](./screenshots/Copper.png)
 
 ### Emerald
 
 ![screenshot](./screenshots/Emerald.png)
 
-### Mechanic
+### Gold
 
-![screenshot](./screenshots/Mechanic.png)
+![screenshot](./screenshots/Gold.png)
+
+### Mechanical
+
+![screenshot](./screenshots/Mechanical.png)
+
+### Mechanical APG
+
+Mechanical theme with alternative progressbar
+
+![screenshot](./screenshots/MechanicalAPG.png)
 
 ### Paper
 
@@ -48,6 +58,10 @@ Here is a list of themes with ans screenshot of them.
 ### Polar
 
 ![screenshot](./screenshots/Polar.png)
+
+### Retro
+
+![screenshot](./screenshots/Retro.png)
 
 ### Ruby
 
