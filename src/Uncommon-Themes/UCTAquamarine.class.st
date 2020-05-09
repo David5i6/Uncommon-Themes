@@ -267,6 +267,11 @@ UCTAquamarine >> scrollbarNormalThumbFillStyleFor: aScrollbar [
 	^ SolidFillStyle color: ((self class baseSelectionColor) lighter paler)
 ]
 
+{ #category : #'accessing colors' }
+UCTAquamarine >> secondarySelectionColor [
+	^ Color r: 0.9 g: 1 b: 1 alpha: 1.0
+]
+
 { #category : #'fill-styles-taskbar' }
 UCTAquamarine >> selectionColor [
 	"Answer the selection color to use.."

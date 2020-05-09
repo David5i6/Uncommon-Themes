@@ -380,6 +380,11 @@ UTCPolar >> scrollbarVerticalFillStyleFor: aScrollbar [
 		yourself.
 ]
 
+{ #category : #'accessing colors' }
+UTCPolar >> secondarySelectionColor [
+	^ Color r: 0.92 g: 0.98 b: 1 alpha: 1.0
+]
+
 { #category : #'fill-styles-taskbar' }
 UTCPolar >> selectionColor [
 	"Answer the selection color to use.."

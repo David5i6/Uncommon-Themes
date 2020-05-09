@@ -267,6 +267,11 @@ UCTRuby >> scrollbarNormalThumbFillStyleFor: aScrollbar [
 	^ SolidFillStyle color: (Color red paler duller whiter muchLighter)
 ]
 
+{ #category : #'accessing colors' }
+UCTRuby >> secondarySelectionColor [
+	^ Color r: 1 g: 0.92 b: 0.92 alpha: 1.0
+]
+
 { #category : #'fill-styles-taskbar' }
 UCTRuby >> selectionColor [
 	"Answer the selection color to use.."

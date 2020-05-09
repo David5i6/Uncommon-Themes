@@ -344,6 +344,11 @@ UCTGold >> scrollbarNormalThumbFillStyleFor: aScrollbar [
 	^ SolidFillStyle color: ((self class baseSelectionColor) paler lighter)
 ]
 
+{ #category : #'accessing colors' }
+UCTGold >> secondarySelectionColor [
+	^ Color r: 1 g: 0.99 b: 0.9 alpha: 1.0
+]
+
 { #category : #'fill-styles-taskbar' }
 UCTGold >> selectionColor [
 	"Answer the selection color to use.."

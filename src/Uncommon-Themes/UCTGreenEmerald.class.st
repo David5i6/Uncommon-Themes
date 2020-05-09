@@ -267,6 +267,11 @@ UCTGreenEmerald >> scrollbarNormalThumbFillStyleFor: aScrollbar [
 	^ SolidFillStyle color: (Color green paler duller whiter muchLighter)
 ]
 
+{ #category : #'accessing colors' }
+UCTGreenEmerald >> secondarySelectionColor [
+	^ Color r: 0.9 g: 1 b: 0.9
+]
+
 { #category : #'fill-styles-taskbar' }
 UCTGreenEmerald >> selectionColor [
 	"Answer the selection color to use.."
