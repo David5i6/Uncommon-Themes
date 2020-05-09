@@ -2,62 +2,62 @@
 Light Pink tones theme
 "
 Class {
-	#name : #ACTSakura,
+	#name : #UCTSakura,
 	#superclass : #UITheme,
 	#category : #'Uncommon-Themes-Base'
 }
 
 { #category : #accessing }
-ACTSakura class >> baseColor [
+UCTSakura class >> baseColor [
 	^ Color r: 255 g: 232 b: 245 range: 255
 ]
 
 { #category : #accessing }
-ACTSakura class >> basePassiveBackgroundColor [
+UCTSakura class >> basePassiveBackgroundColor [
 	^ Color r: 250 g: 245 b: 255 range: 255
 ]
 
 { #category : #accessing }
-ACTSakura class >> baseSelectionColor [
+UCTSakura class >> baseSelectionColor [
 	^ Color r: 255 g: 192 b: 232 range: 255
 ]
 
 { #category : #'accessing colors' }
-ACTSakura class >> caretColor [
+UCTSakura class >> caretColor [
 	^ Color red lighter paler
 ]
 
 { #category : #accessing }
-ACTSakura class >> darkBaseColor [
+UCTSakura class >> darkBaseColor [
 	^ Color r: 225 g: 192 b: 205 range: 255
 ]
 
 { #category : #accessing }
-ACTSakura class >> isAbstract [
+UCTSakura class >> isAbstract [
 	"Answer whether the receiver is considered to be abstract."
 
 	^false
 ]
 
 { #category : #accessing }
-ACTSakura class >> lightBaseColor [
+UCTSakura class >> lightBaseColor [
 	^ Color r: 232 g: 232 b: 232 range: 255
 ]
 
 { #category : #accessing }
-ACTSakura class >> lightSelectionColor [
+UCTSakura class >> lightSelectionColor [
 	^ Color r: 255 g: 232 b: 250 range: 255
 ]
 
 { #category : #settings }
-ACTSakura class >> setPreferredPreferences [
+UCTSakura class >> setPreferredPreferences [
 	"NECPreferences 
 		expandPrefixes: true;
 		popupShowWithShortcut: Character tab asShortcut."
 ]
 
 { #category : #settings }
-ACTSakura class >> setPreferredShoutColors [
+UCTSakura class >> setPreferredShoutColors [
 	"self setPreferredShoutColors"
 
 	SHRBTextStyler styleTable: 
@@ -174,23 +174,23 @@ ACTSakura class >> setPreferredShoutColors [
 ]
 
 { #category : #accessing }
-ACTSakura class >> themeName [
+UCTSakura class >> themeName [
 	^ 'Uncommon Theme Sakura'
 ]
 
 { #category : #accessing }
-ACTSakura class >> veryLightSelectionColor [
+UCTSakura class >> veryLightSelectionColor [
 	^ self lightSelectionColor whiter lighter
 ]
 
 { #category : #'accessing colors' }
-ACTSakura >> balloonBackgroundColor [
+UCTSakura >> balloonBackgroundColor [
 
 	^ (Color r: 0.9 g: 0.7 b: 0.8 alpha: 0.92)
 ]
 
 { #category : #'border-styles-buttons' }
-ACTSakura >> buttonNormalBorderStyleFor: aButton [
+UCTSakura >> buttonNormalBorderStyleFor: aButton [
 	"Return the normal button borderStyle for the given button."
 
 	| outerColor |
@@ -205,7 +205,7 @@ ACTSakura >> buttonNormalBorderStyleFor: aButton [
 ]
 
 { #category : #'border-styles' }
-ACTSakura >> configureWindowBorderFor: aWindow [
+UCTSakura >> configureWindowBorderFor: aWindow [
 
 	| aStyle |
 	aStyle := SimpleBorder new 
@@ -215,7 +215,7 @@ ACTSakura >> configureWindowBorderFor: aWindow [
 ]
 
 { #category : #initialization }
-ACTSakura >> initialize [
+UCTSakura >> initialize [
 	"self beCurrent"
 
 	super initialize.
@@ -225,26 +225,26 @@ ACTSakura >> initialize [
 ]
 
 { #category : #'accessing colors' }
-ACTSakura >> lightBackgroundColor [ 
+UCTSakura >> lightBackgroundColor [ 
 	^ (Color r: 255 g:232 b:250 range:255)
 ]
 
 { #category : #forms }
-ACTSakura >> newRadioMarkerForm [
+UCTSakura >> newRadioMarkerForm [
 	"Answer a new checkbox marker form."
 
 	^Form extent: 12@12 depth: 32
 ]
 
 { #category : #'fill-styles' }
-ACTSakura >> progressBarProgressFillStyleFor: aProgressBar [
+UCTSakura >> progressBarProgressFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 
 	^Color r:255 g:164 b:224 range:255
 ]
 
 { #category : #'border-styles-scrollbars' }
-ACTSakura >> scrollbarNormalBorderStyleFor: aScrollbar [
+UCTSakura >> scrollbarNormalBorderStyleFor: aScrollbar [
 	"Return the normal button borderStyle for the given scrollbar."
 
 	^BorderStyle simple
@@ -253,7 +253,7 @@ ACTSakura >> scrollbarNormalBorderStyleFor: aScrollbar [
 ]
 
 { #category : #'border-styles-scrollbars' }
-ACTSakura >> scrollbarNormalThumbBorderStyleFor: aScrollbar [
+UCTSakura >> scrollbarNormalThumbBorderStyleFor: aScrollbar [
 	"Return the normal thumb borderStyle for the given scrollbar."
 
 	^ BorderStyle simple
@@ -262,37 +262,42 @@ ACTSakura >> scrollbarNormalThumbBorderStyleFor: aScrollbar [
 ]
 
 { #category : #'fill-styles-scrollbars' }
-ACTSakura >> scrollbarNormalThumbFillStyleFor: aScrollbar [
+UCTSakura >> scrollbarNormalThumbFillStyleFor: aScrollbar [
 	"Return the normal scrollbar fillStyle for the given scrollbar."
 	^ SolidFillStyle color: ((self class baseSelectionColor) lighter paler)
 ]
 
+{ #category : #'accessing colors' }
+UCTSakura >> secondarySelectionColor [
+	^ Color r: 1 g: 0.90 b: 1alpha: 1.0
+]
+
 { #category : #'fill-styles-taskbar' }
-ACTSakura >> selectionColor [
+UCTSakura >> selectionColor [
 	"Answer the selection color to use.."
 
 	^ self class baseSelectionColor
 ]
 
 { #category : #'fill-styles-taskbar' }
-ACTSakura >> taskbarFillStyleFor: aTaskbar [
+UCTSakura >> taskbarFillStyleFor: aTaskbar [
 	^ SolidFillStyle color: (Color cyan whiter whiter muchLighter)
 ]
 
 { #category : #'border-styles-taskbar' }
-ACTSakura >> taskbarItemDisabledBorderStyleFor: aButton [
+UCTSakura >> taskbarItemDisabledBorderStyleFor: aButton [
 	^ self taskbarItemNormalBorderStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-ACTSakura >> taskbarItemDisabledFillStyleFor: aButton [
+UCTSakura >> taskbarItemDisabledFillStyleFor: aButton [
 	"Return the disabled taskbar item fillStyle for the given color."
 
 	^ self taskbarItemNormalFillStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-ACTSakura >> taskbarItemMouseOverBorderStyleFor: aButton [
+UCTSakura >> taskbarItemMouseOverBorderStyleFor: aButton [
 	^ BottomBorder new
 		color: (Color fromHexString: '616161');
 		width: 2;
@@ -300,12 +305,12 @@ ACTSakura >> taskbarItemMouseOverBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-taskbar' }
-ACTSakura >> taskbarItemMouseOverFillStyleFor: aButton [
+UCTSakura >> taskbarItemMouseOverFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.07)
 ]
 
 { #category : #'border-styles-taskbar' }
-ACTSakura >> taskbarItemNormalBorderStyleFor: aButton [
+UCTSakura >> taskbarItemNormalBorderStyleFor: aButton [
 	^ BottomBorder new
 		color: (Color fromHexString: '757575');
 		width: 2;
@@ -314,51 +319,51 @@ ACTSakura >> taskbarItemNormalBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-taskbar' }
-ACTSakura >> taskbarItemNormalFillStyleFor: aButton [
+UCTSakura >> taskbarItemNormalFillStyleFor: aButton [
 	^ SolidFillStyle color: Color transparent
 ]
 
 { #category : #'border-styles-taskbar' }
-ACTSakura >> taskbarItemPressedBorderStyleFor: aButton [
+UCTSakura >> taskbarItemPressedBorderStyleFor: aButton [
 	^ self taskbarItemNormalBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-ACTSakura >> taskbarItemPressedFillStyleFor: aButton [
+UCTSakura >> taskbarItemPressedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.15)
 ]
 
 { #category : #'border-styles-taskbar' }
-ACTSakura >> taskbarItemSelectedBorderStyleFor: aButton [
+UCTSakura >> taskbarItemSelectedBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'border-styles-taskbar' }
-ACTSakura >> taskbarItemSelectedDisabledBorderStyleFor: aButton [
+UCTSakura >> taskbarItemSelectedDisabledBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-ACTSakura >> taskbarItemSelectedFillStyleFor: aButton [
+UCTSakura >> taskbarItemSelectedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.1)
 ]
 
 { #category : #'border-styles-taskbar' }
-ACTSakura >> taskbarItemSelectedMouseOverBorderStyleFor: aButton [
+UCTSakura >> taskbarItemSelectedMouseOverBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-ACTSakura >> taskbarItemSelectedMouseOverFillStyleFor: aButton [
+UCTSakura >> taskbarItemSelectedMouseOverFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.15)
 ]
 
 { #category : #'border-styles-taskbar' }
-ACTSakura >> taskbarItemSelectedPressedBorderStyleFor: aButton [
+UCTSakura >> taskbarItemSelectedPressedBorderStyleFor: aButton [
 	^ self taskbarItemMouseOverBorderStyleFor: aButton
 ]
 
 { #category : #'fill-styles-taskbar' }
-ACTSakura >> taskbarItemSelectedPressedFillStyleFor: aButton [
+UCTSakura >> taskbarItemSelectedPressedFillStyleFor: aButton [
 	^ SolidFillStyle color: (Color black alpha: 0.2)
 ]

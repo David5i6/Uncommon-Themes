@@ -249,6 +249,11 @@ UCTPaper >> scrollbarPressedThumbFillStyleFor: aScrollbar [
 	^ self selectedFillStyleFor: aScrollbar height: aScrollbar height
 ]
 
+{ #category : #'accessing colors' }
+UCTPaper >> secondarySelectionColor [
+	^ Color r: 0.9 g: 0.97 b: 1 alpha: 1.0
+]
+
 { #category : #'fill-styles-taskbar' }
 UCTPaper >> selectionColor [
 	"Answer the selection color to use.."

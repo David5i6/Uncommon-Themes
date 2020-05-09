@@ -400,6 +400,11 @@ UCTSunLight >> scrollbarVerticalFillStyleFor: aScrollbar [
 		yourself.
 ]
 
+{ #category : #'accessing colors' }
+UCTSunLight >> secondarySelectionColor [
+	^ self class baseSelectionColor muchLighter
+]
+
 { #category : #'fill-styles-taskbar' }
 UCTSunLight >> selectionColor [
 	"Answer the selection color to use.."
