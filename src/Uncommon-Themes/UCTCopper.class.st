@@ -195,7 +195,31 @@ UCTCopper >> buttonNormalBorderStyleFor: aButton [
 	outerColor := self darkBaseColorFor: aButton.
 	^ SimpleBorder new
 			width: 1;
-			baseColor: outerColor blacker
+			baseColor: ((self class baseColor) darker duller blacker)
+]
+
+{ #category : #'fill-styles-buttons' }
+UCTCopper >> buttonNormalFillStyleFor: aButton [
+	"Return the normal button fillStyle for the given button."
+	
+"Return the normal button fillStyle for the given button."
+	
+	| baseColor |
+	baseColor := (self class baseSelectionColor) duller.
+	"Fill using a Gradient"
+	^(GradientFillStyle
+		ramp:
+		{(0.0 -> baseColor).
+		(0.1 -> baseColor).
+	(0.15 -> baseColor whiter).
+	(0.2 -> baseColor whiter lighter).
+	(0.25 -> baseColor whiter).
+	(0.3 -> baseColor).
+	(1.0 -> baseColor whiter lighter)})
+		radial: false;
+		origin: aButton topLeft ;
+		direction: 0@(aButton height);
+		yourself.
 ]
 
 { #category : #'fill-styles-buttons' }
@@ -203,20 +227,20 @@ UCTCopper >> buttonSelectedFillStyleFor: aButton [
 	"Return the normal button fillStyle for the given button."
 	
 	| baseColor |
-	baseColor := (self lightSelectionColorFor: aButton) muchLighter.
+	baseColor := (self class baseSelectionColor) lighter.
 	"Fill using a Gradient"
 	^(GradientFillStyle
 		ramp:
 		{(0.0 -> baseColor).
 		(0.1 -> baseColor).
 	(0.3 -> baseColor whiter).
-	(0.35 -> baseColor whiter muchLighter).
-	(0.4 -> baseColor whiter).
+	(0.36 -> baseColor whiter muchLighter).
+	(0.42 -> baseColor whiter).
 	(0.6 -> baseColor).
 	(1.0 -> baseColor whiter lighter)})
 		radial: false;
 		origin: aButton topLeft ;
-		direction: (aButton width)@(aButton height);
+		direction: 0@(aButton height);
 		yourself.
 ]
 
@@ -244,7 +268,7 @@ UCTCopper >> initialize [
 UCTCopper >> listDisabledFillStyleFor: aList [
 	"Return the disabled fillStyle for the given list."
 	
-	^ Color lightGray lighter
+	^ self class lightSelectionColor paler lighter
 ]
 
 { #category : #'accessing colors' }
@@ -255,6 +279,11 @@ UCTCopper >> menuColor [
 { #category : #'accessing colors' }
 UCTCopper >> menuSelectionColor [
 	^ self class baseSelectionColor
+]
+
+{ #category : #'accessing colors' }
+UCTCopper >> menuSelectionTextColor [
+	^ self textColor
 ]
 
 { #category : #forms }
@@ -326,7 +355,13 @@ UCTCopper >> scrollbarNormalBorderStyleFor: aScrollbar [
 
 	^BorderStyle simple
 		width: 1;
-		baseColor: Color yellow paler muchDarker
+		baseColor: Color red paler muchDarker
+]
+
+{ #category : #'fill-styles-scrollbars' }
+UCTCopper >> scrollbarNormalFillStyleFor: aScrollbar [
+	"Return the normal scrollbar fillStyle for the given scrollbar."
+	^ SolidFillStyle color: ((self class baseSelectionColor) paler lighter)
 ]
 
 { #category : #'border-styles-scrollbars' }
@@ -335,18 +370,18 @@ UCTCopper >> scrollbarNormalThumbBorderStyleFor: aScrollbar [
 
 	^ BorderStyle simple
 		width: 1;
-		baseColor: (Color yellow duller paler blacker darker alpha:0.76)
+		baseColor: (Color red duller muchDarker)
 ]
 
 { #category : #'fill-styles-scrollbars' }
 UCTCopper >> scrollbarNormalThumbFillStyleFor: aScrollbar [
 	"Return the normal scrollbar fillStyle for the given scrollbar."
-	^ SolidFillStyle color: ((self class baseSelectionColor) paler lighter)
+	^ SolidFillStyle color: ((self class baseSelectionColor) darker)
 ]
 
 { #category : #'accessing colors' }
 UCTCopper >> secondarySelectionColor [
-	^ Color r: 1 g: 0.95 b: 0.90 alpha: 1.0
+	^ Color r: 1 g: 0.96 b: 0.90 alpha: 1.0
 ]
 
 { #category : #'fill-styles-taskbar' }
@@ -358,7 +393,7 @@ UCTCopper >> selectionColor [
 
 { #category : #'fill-styles-taskbar' }
 UCTCopper >> taskbarFillStyleFor: aTaskbar [
-	^ SolidFillStyle color: (Color gray muchLighter alpha: 0.92)
+	^ SolidFillStyle color: (Color yellow paler muchLighter alpha: 0.92)
 ]
 
 { #category : #'border-styles-taskbar' }
@@ -389,7 +424,7 @@ UCTCopper >> taskbarItemMouseOverFillStyleFor: aButton [
 { #category : #'border-styles-taskbar' }
 UCTCopper >> taskbarItemNormalBorderStyleFor: aButton [
 	^ BottomBorder new
-		color: (Color fromHexString: '757575');
+		color: (Color fromHexString: '757564');
 		width: 2;
 		trimSize: 2;
 		yourself
@@ -407,7 +442,7 @@ UCTCopper >> taskbarItemPressedBorderStyleFor: aButton [
 
 { #category : #'fill-styles-taskbar' }
 UCTCopper >> taskbarItemPressedFillStyleFor: aButton [
-	^ SolidFillStyle color: (Color black alpha: 0.15)
+	^ SolidFillStyle color: (Color yellow alpha: 0.15)
 ]
 
 { #category : #'border-styles-taskbar' }
@@ -422,7 +457,7 @@ UCTCopper >> taskbarItemSelectedDisabledBorderStyleFor: aButton [
 
 { #category : #'fill-styles-taskbar' }
 UCTCopper >> taskbarItemSelectedFillStyleFor: aButton [
-	^ SolidFillStyle color: (Color black alpha: 0.1)
+	^ SolidFillStyle color: (Color yellow alpha: 0.1)
 ]
 
 { #category : #'border-styles-taskbar' }
@@ -432,7 +467,7 @@ UCTCopper >> taskbarItemSelectedMouseOverBorderStyleFor: aButton [
 
 { #category : #'fill-styles-taskbar' }
 UCTCopper >> taskbarItemSelectedMouseOverFillStyleFor: aButton [
-	^ SolidFillStyle color: (Color black alpha: 0.15)
+	^ SolidFillStyle color: (Color yellow alpha: 0.15)
 ]
 
 { #category : #'border-styles-taskbar' }
