@@ -337,7 +337,7 @@ UCTCopper >> scrollbarNormalBorderStyleFor: aScrollbar [
 { #category : #'fill-styles-scrollbars' }
 UCTCopper >> scrollbarNormalFillStyleFor: aScrollbar [
 	"Return the normal scrollbar fillStyle for the given scrollbar."
-	^ SolidFillStyle color: ((self class baseSelectionColor) paler lighter)
+	^ SolidFillStyle color: ((self class baseSelectionColor) paler lighter alpha:0.75)
 ]
 
 { #category : #'border-styles-scrollbars' }
@@ -352,7 +352,7 @@ UCTCopper >> scrollbarNormalThumbBorderStyleFor: aScrollbar [
 { #category : #'fill-styles-scrollbars' }
 UCTCopper >> scrollbarNormalThumbFillStyleFor: aScrollbar [
 	"Return the normal scrollbar fillStyle for the given scrollbar."
-	^ SolidFillStyle color: ((self class baseSelectionColor) darker)
+	^ SolidFillStyle color: ((self class baseSelectionColor) alpha:0.75)
 ]
 
 { #category : #'accessing colors' }
@@ -369,7 +369,7 @@ UCTCopper >> selectionColor [
 
 { #category : #'fill-styles-taskbar' }
 UCTCopper >> taskbarFillStyleFor: aTaskbar [
-	^ SolidFillStyle color: (Color yellow paler muchLighter alpha: 0.92)
+	^ SolidFillStyle color: ((self class baseColor) paler muchLighter alpha: 0.92)
 ]
 
 { #category : #'border-styles-taskbar' }
@@ -387,7 +387,7 @@ UCTCopper >> taskbarItemDisabledFillStyleFor: aButton [
 { #category : #'border-styles-taskbar' }
 UCTCopper >> taskbarItemMouseOverBorderStyleFor: aButton [
 	^ BottomBorder new
-		color: (Color fromHexString: '616161');
+		color: (Color fromHexString: '726461');
 		width: 2;
 		yourself
 ]
