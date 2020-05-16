@@ -199,30 +199,6 @@ UCTCopper >> buttonNormalBorderStyleFor: aButton [
 ]
 
 { #category : #'fill-styles-buttons' }
-UCTCopper >> buttonNormalFillStyleFor: aButton [
-	"Return the normal button fillStyle for the given button."
-	
-"Return the normal button fillStyle for the given button."
-	
-	| baseColor |
-	baseColor := (self class baseSelectionColor) duller.
-	"Fill using a Gradient"
-	^(GradientFillStyle
-		ramp:
-		{(0.0 -> baseColor).
-		(0.1 -> baseColor).
-	(0.15 -> baseColor whiter).
-	(0.2 -> baseColor whiter lighter).
-	(0.25 -> baseColor whiter).
-	(0.3 -> baseColor).
-	(1.0 -> baseColor whiter lighter)})
-		radial: false;
-		origin: aButton topLeft ;
-		direction: 0@(aButton height);
-		yourself.
-]
-
-{ #category : #'fill-styles-buttons' }
 UCTCopper >> buttonSelectedFillStyleFor: aButton [
 	"Return the normal button fillStyle for the given button."
 	
