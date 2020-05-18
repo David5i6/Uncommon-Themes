@@ -51,6 +51,10 @@ Mechanical theme with alternative progressbar
 
 ![screenshot](./screenshots/MechanicalAPG.png)
 
+### Oldie
+
+![screenshot](./screenshots/Oldie.png)
+
 ### Paper
 
 ![screenshot](./screenshots/Paper.png)
