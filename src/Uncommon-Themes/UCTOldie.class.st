@@ -28,7 +28,7 @@ UCTOldie class >> baseSelectionColor [
 
 { #category : #accessing }
 UCTOldie class >> darkBaseColor [
-	^ Color r: 196 g: 196 b: 196 range: 255
+	^ Color r: 245 g: 245 b: 245 range: 255
 ]
 
 { #category : #accessing }
@@ -40,7 +40,7 @@ UCTOldie class >> isAbstract [
 
 { #category : #accessing }
 UCTOldie class >> lightBaseColor [
-	^ Color r: 222 g: 222 b: 222 range: 255
+	^ Color r: 255 g: 255 b: 255 range: 255
 ]
 
 { #category : #accessing }
@@ -203,6 +203,11 @@ UCTOldie >> buttonNormalBorderStyleFor: aButton [
 			baseColor: outerColor
 ]
 
+{ #category : #'border-styles-buttons' }
+UCTOldie >> buttonNormalFillStyleFor: aButton [
+^ Color lightGray lighter whiter
+]
+
 { #category : #'border-styles' }
 UCTOldie >> configureWindowBorderFor: aWindow [
 
@@ -244,25 +249,25 @@ UCTOldie >> newRadioMarkerForm [
 UCTOldie >> patternForm [
 	"form
 		ifNil: [" 
-			form := Form extent: 5 @ 4 depth: 32.
+			form := Form extent: 4 @ 4 depth: 32.
 			form colorAt: 0 @ 0 put: Color blue darker.
-			form colorAt: 0 @ 1 put: Color white.
-			form colorAt: 0 @ 2 put: Color white.
+			form colorAt: 0 @ 1 put: Color yellow.
+			form colorAt: 0 @ 2 put: Color yellow.
 			form colorAt: 0 @ 3 put: Color blue.
 			
-			form colorAt: 1 @ 0 put: Color white.
+			form colorAt: 1 @ 0 put: Color yellow.
 			form colorAt: 1 @ 1 put: Color blue.
 			form colorAt: 1 @ 2 put: Color blue darker.
-			form colorAt: 1 @ 3 put: Color white.
+			form colorAt: 1 @ 3 put: Color yellow.
 			
-			form colorAt: 2 @ 0 put: Color white.
+			form colorAt: 2 @ 0 put: Color yellow.
 			form colorAt: 2 @ 1 put: Color blue darker.
 			form colorAt: 2 @ 2 put: Color blue darker blacker.
-			form colorAt: 2 @ 3 put: Color white.
+			form colorAt: 2 @ 3 put: Color yellow.
 			
 			form colorAt: 3 @ 0 put: Color blue darker.
-			form colorAt: 3 @ 1 put: Color white.
-			form colorAt: 3 @ 2 put: Color white.
+			form colorAt: 3 @ 1 put: Color yellow.
+			form colorAt: 3 @ 2 put: Color yellow.
 			form colorAt: 3 @ 3 put: Color blue darker blacker.
 			" ]."
 	^ form
@@ -271,34 +276,52 @@ UCTOldie >> patternForm [
 { #category : #'accessing colors' }
 UCTOldie >> patternFormLight [
 	"formLight
-		ifNil: [" formLight := Form extent: 5 @ 4 depth: 32.
-			formLight colorAt: 0 @ 0 put: Color white.
-			formLight colorAt: 0 @ 1 put: Color gray.
-			formLight colorAt: 0 @ 2 put: Color gray.
-			formLight colorAt: 0 @ 3 put: Color white.
+		ifNil: [" 
 			
-			formLight colorAt: 1 @ 0 put: Color gray.
-			formLight colorAt: 1 @ 1 put: Color white.
-			formLight colorAt: 1 @ 2 put: Color white.
-			formLight colorAt: 1 @ 3 put: Color gray.
+			| lightColor darkColor |
+			darkColor := Color gray whiter muchLighter.
+			lightColor := Color white.
 			
-			formLight colorAt: 2 @ 0 put: Color white.
-			formLight colorAt: 2 @ 1 put: Color gray.
-			formLight colorAt: 2 @ 2 put: Color gray.
-			formLight colorAt: 2 @ 3 put: Color white.
+			formLight := Form extent: 4 @ 4 depth: 32.
+			formLight colorAt: 0 @ 0 put: lightColor.
+			formLight colorAt: 0 @ 1 put: darkColor.
+			formLight colorAt: 0 @ 2 put: darkColor.
+			formLight colorAt: 0 @ 3 put: lightColor.
 			
-			formLight colorAt: 3 @ 0 put: Color gray.
-			formLight colorAt: 3 @ 1 put: Color white.
-			formLight colorAt: 3 @ 2 put: Color white.
-			formLight colorAt: 3 @ 3 put: Color gray.
+			formLight colorAt: 1 @ 0 put: darkColor.
+			formLight colorAt: 1 @ 1 put: lightColor.
+			formLight colorAt: 1 @ 2 put: lightColor.
+			formLight colorAt: 1 @ 3 put: darkColor.
 			
-			formLight colorAt: 4 @ 0 put: Color white.
-			formLight colorAt: 4 @ 1 put: Color white.
-			formLight colorAt: 4 @ 2 put: Color white.
-			formLight colorAt: 4 @ 3 put: Color white.
+			formLight colorAt: 2 @ 0 put: lightColor.
+			formLight colorAt: 2 @ 1 put: darkColor.
+			formLight colorAt: 2 @ 2 put: darkColor.
+			formLight colorAt: 2 @ 3 put: lightColor.
+			
+			formLight colorAt: 3 @ 0 put: darkColor.
+			formLight colorAt: 3 @ 1 put: lightColor.
+			formLight colorAt: 3 @ 2 put: lightColor.
+			formLight colorAt: 3 @ 3 put: darkColor.
+			
 			
 			"]."
 	^ formLight
+]
+
+{ #category : #'border-styles-buttons' }
+UCTOldie >> progressBarBorderStyleFor: aButton [
+	"Return the normal button borderStyle for the given button."
+
+
+	(aButton valueOfProperty: #noBorder ifAbsent: [false]) 
+		ifTrue: [ ^ SimpleBorder new 
+							width: 0; 
+							baseColor: Color transparent ].
+						
+	
+	^ SimpleBorder new
+			width: 1;
+			baseColor: Color black
 ]
 
 { #category : #'fill-styles' }
