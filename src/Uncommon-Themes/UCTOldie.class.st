@@ -247,8 +247,8 @@ UCTOldie >> newRadioMarkerForm [
 
 { #category : #'accessing colors' }
 UCTOldie >> patternForm [
-	"form
-		ifNil: [" 
+	form
+		ifNil: [ 
 			form := Form extent: 4 @ 4 depth: 32.
 			form colorAt: 0 @ 0 put: Color blue darker.
 			form colorAt: 0 @ 1 put: Color yellow.
@@ -269,14 +269,14 @@ UCTOldie >> patternForm [
 			form colorAt: 3 @ 1 put: Color yellow.
 			form colorAt: 3 @ 2 put: Color yellow.
 			form colorAt: 3 @ 3 put: Color blue darker blacker.
-			" ]."
+			].
 	^ form
 ]
 
 { #category : #'accessing colors' }
 UCTOldie >> patternFormLight [
-	"formLight
-		ifNil: [" 
+	formLight
+		ifNil: [ 
 			
 			| lightColor darkColor |
 			darkColor := Color gray whiter muchLighter.
@@ -303,8 +303,7 @@ UCTOldie >> patternFormLight [
 			formLight colorAt: 3 @ 2 put: lightColor.
 			formLight colorAt: 3 @ 3 put: darkColor.
 			
-			
-			"]."
+			].
 	^ formLight
 ]
 
@@ -339,15 +338,12 @@ UCTOldie >> progressBarProgressFillStyleFor: aProgressBar [
 ]
 
 { #category : #forms }
+UCTOldie >> scrollbarNormalThumbFillStyleFor: aScrollbar [
+	^ Color lightGray whiter lighter
+]
+
+{ #category : #forms }
 UCTOldie >> scrollbarPressedThumbFillStyleFor: aScrollbar [
-	"Return the pressed scrollbar thumb fillStyle for the given scrollbar."
-		"Return the normal scrollbar fillStyle for the given scrollbar."
-	
-	"^ (self glamorousNormalFillStyleWithBaseColor: aScrollbar paneColor for:  aScrollbar height: aScrollbar height)
-		direction: (aScrollbar bounds isWide
-			ifTrue: [0 @ aScrollbar height]
-			ifFalse: [aScrollbar width @ 0])"
-"	^ SolidFillStyle color: Color lightGray lighter."
 	^ self selectedFillStyleFor: aScrollbar height: aScrollbar height
 ]
 
@@ -474,4 +470,9 @@ UCTOldie >> windowActiveTitleFillStyleFor: aWindow [
 UCTOldie >> windowInactiveFillStyleFor: aWindow [
 	"We do not want the lighting effect when the window goes inactive"
 	^SolidFillStyle color: self baseColor darker.
+]
+
+{ #category : #forms }
+UCTOldie >> windowInactiveTitleFillStyleFor: aWindow [
+	^ SolidFillStyle color: Color gray lighter
 ]
