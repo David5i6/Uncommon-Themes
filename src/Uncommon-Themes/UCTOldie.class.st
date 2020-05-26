@@ -4,10 +4,6 @@ An oldie inspired theme
 Class {
 	#name : #UCTOldie,
 	#superclass : #UITheme,
-	#instVars : [
-		'formLight',
-		'form'
-	],
 	#category : #'Uncommon-Themes-Base'
 }
 
@@ -185,7 +181,7 @@ UCTOldie class >> veryLightSelectionColor [
 { #category : #'accessing colors' }
 UCTOldie >> balloonBackgroundColor [
 
-	^ (Color r: 1.0 g: 1.0 b: 0.71 alpha: 0.9)
+	^ (Color r: 1.0 g: 1.0 b: 0.64)
 ]
 
 { #category : #'border-styles-buttons' }
@@ -245,68 +241,6 @@ UCTOldie >> newRadioMarkerForm [
 	^Form extent: 12@12 depth: 32
 ]
 
-{ #category : #'accessing colors' }
-UCTOldie >> patternForm [
-	form
-		ifNil: [ 
-			form := Form extent: 4 @ 4 depth: 32.
-			form colorAt: 0 @ 0 put: Color blue darker.
-			form colorAt: 0 @ 1 put: Color yellow.
-			form colorAt: 0 @ 2 put: Color yellow.
-			form colorAt: 0 @ 3 put: Color blue.
-			
-			form colorAt: 1 @ 0 put: Color yellow.
-			form colorAt: 1 @ 1 put: Color blue.
-			form colorAt: 1 @ 2 put: Color blue darker.
-			form colorAt: 1 @ 3 put: Color yellow.
-			
-			form colorAt: 2 @ 0 put: Color yellow.
-			form colorAt: 2 @ 1 put: Color blue darker.
-			form colorAt: 2 @ 2 put: Color blue darker blacker.
-			form colorAt: 2 @ 3 put: Color yellow.
-			
-			form colorAt: 3 @ 0 put: Color blue darker.
-			form colorAt: 3 @ 1 put: Color yellow.
-			form colorAt: 3 @ 2 put: Color yellow.
-			form colorAt: 3 @ 3 put: Color blue darker blacker.
-			].
-	^ form
-]
-
-{ #category : #'accessing colors' }
-UCTOldie >> patternFormLight [
-	formLight
-		ifNil: [ 
-			
-			| lightColor darkColor |
-			darkColor := Color gray whiter muchLighter.
-			lightColor := Color white.
-			
-			formLight := Form extent: 4 @ 4 depth: 32.
-			formLight colorAt: 0 @ 0 put: lightColor.
-			formLight colorAt: 0 @ 1 put: darkColor.
-			formLight colorAt: 0 @ 2 put: darkColor.
-			formLight colorAt: 0 @ 3 put: lightColor.
-			
-			formLight colorAt: 1 @ 0 put: darkColor.
-			formLight colorAt: 1 @ 1 put: lightColor.
-			formLight colorAt: 1 @ 2 put: lightColor.
-			formLight colorAt: 1 @ 3 put: darkColor.
-			
-			formLight colorAt: 2 @ 0 put: lightColor.
-			formLight colorAt: 2 @ 1 put: darkColor.
-			formLight colorAt: 2 @ 2 put: darkColor.
-			formLight colorAt: 2 @ 3 put: lightColor.
-			
-			formLight colorAt: 3 @ 0 put: darkColor.
-			formLight colorAt: 3 @ 1 put: lightColor.
-			formLight colorAt: 3 @ 2 put: lightColor.
-			formLight colorAt: 3 @ 3 put: darkColor.
-			
-			].
-	^ formLight
-]
-
 { #category : #'border-styles-buttons' }
 UCTOldie >> progressBarBorderStyleFor: aButton [
 	"Return the normal button borderStyle for the given button."
@@ -327,14 +261,14 @@ UCTOldie >> progressBarBorderStyleFor: aButton [
 UCTOldie >> progressBarFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 
-	^ BitmapFillStyle fromForm: self patternFormLight.
+	^ Color white
 ]
 
 { #category : #'fill-styles' }
 UCTOldie >> progressBarProgressFillStyleFor: aProgressBar [
 	" Get the color for the progress bar"
 
-	^ BitmapFillStyle fromForm: self patternForm.
+	^ Color blue
 ]
 
 { #category : #forms }
