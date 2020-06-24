@@ -41,6 +41,10 @@ Here is a list of themes with ans screenshot of them.
 
 ![screenshot](./screenshots/Gold.png)
 
+### Jade
+
+![screenshot](./screenshots/Jade.png)
+
 ### Mechanical
 
 ![screenshot](./screenshots/Mechanical.png)
@@ -51,9 +55,17 @@ Mechanical theme with alternative progressbar
 
 ![screenshot](./screenshots/MechanicalAPG.png)
 
+### Nineties
+
+![screenshot](./screenshots/Nineties.png)
+
 ### Oldie
 
 ![screenshot](./screenshots/Oldie.png)
+
+### Oldie Patterns
+
+![screenshot](./screenshots/OldiePatterns.png)
 
 ### Paper
 
